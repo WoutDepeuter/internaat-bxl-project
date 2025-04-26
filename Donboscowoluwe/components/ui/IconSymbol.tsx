@@ -1,43 +1,49 @@
 // This file is a fallback for using MaterialIcons on Android and web.
 
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { MaterialIcons } from '@expo/vector-icons';
 import { SymbolWeight } from 'expo-symbols';
 import React from 'react';
-import { OpaqueColorValue, StyleProp, ViewStyle } from 'react-native';
+import { Platform, OpaqueColorValue, StyleProp, ViewStyle } from 'react-native';
 
-// Add your SFSymbol to MaterialIcons mappings here.
+// Direct mapping from SF Symbols to Material Icons
 const MAPPING = {
-  // See MaterialIcons here: https://icons.expo.fyi
-  // See SF Symbols in the SF Symbols app on Mac.
-  'house.fill': 'home',
-  'paperplane.fill': 'send',
-  'chevron.left.forwardslash.chevron.right': 'code',
-  'chevron.right': 'chevron-right',
-} as Partial<
-  Record<
-    import('expo-symbols').SymbolViewProps['name'],
-    React.ComponentProps<typeof MaterialIcons>['name']
-  >
->;
-
-export type IconSymbolName = keyof typeof MAPPING;
+    'house.fill': 'home',
+    'paperplane.fill': 'send',
+    'chevron.left.forwardslash.chevron.right': 'code',
+    'person.2.fill': 'people',
+    'building.2.fill': 'apartment',
+    'doc.text.fill': 'description',
+    'envelope.fill': 'email',
+    'person.crop.circle.fill': 'account_circle',
+    'calendar.badge.plus': 'event',
+    'phone.fill': 'phone',
+};
 
 /**
- * An icon component that uses native SFSymbols on iOS, and MaterialIcons on Android and web. This ensures a consistent look across platforms, and optimal resource usage.
- *
- * Icon `name`s are based on SFSymbols and require manual mapping to MaterialIcons.
+ * An icon component that uses native SFSymbols on iOS, and MaterialIcons on Android and web.
  */
 export function IconSymbol({
-  name,
-  size = 24,
-  color,
-  style,
-}: {
-  name: IconSymbolName;
-  size?: number;
-  color: string | OpaqueColorValue;
-  style?: StyleProp<ViewStyle>;
-  weight?: SymbolWeight;
+                               name,
+                               size = 24,
+                               color,
+                               style,
+                               weight,
+                           }: {
+    name: string;
+    size?: number;
+    color: string | OpaqueColorValue;
+    style?: StyleProp<ViewStyle>;
+    weight?: SymbolWeight;
 }) {
-  return <MaterialIcons color={color} size={size} name={MAPPING[name]} style={style} />;
+    // Get the mapped icon name or use a default
+    const iconName = MAPPING[name] || 'help_outline';
+
+    return (
+        <MaterialIcons
+            name={iconName}
+            size={size}
+            color={color}
+            style={style}
+        />
+    );
 }
