@@ -1,7 +1,5 @@
 # internaat-bxl-project
 
-## English Version <a name="english-version"></a>
-
 ## Description
 This repository includes code for the mobile version of the [website of Don Bosco Boarding School at Woluwe](https://www.woluweinternaat.be/).
 
