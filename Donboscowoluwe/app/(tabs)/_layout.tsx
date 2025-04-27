@@ -33,21 +33,21 @@ export default function TabLayout() {
                 }}
             />
             <Tabs.Screen
-                name="opvoeden"
+                name="Opvoeden"
                 options={{
                     title: 'Opvoeden',
                     tabBarIcon: ({ color }) => <IconSymbol size={28} name="person.2.fill" color={color} />,
                 }}
             />
             <Tabs.Screen
-                name="internaat"
+                name="Internaat"
                 options={{
                     title: 'Internaat',
-                    tabBarIcon: ({ color }) => <IconSymbol size={28} name="person.2.fill" color={color} />,
+                    tabBarIcon: ({ color }) => <IconSymbol size={28} name="    'building.2.fill': 'apartment'," color={color} />,
                 }}
             />
             <Tabs.Screen
-                name="inschrijven"
+                name="Inschrijvingen"
                 options={{
                     title: 'Inschrijven',
                     tabBarIcon: ({ color }) => <IconSymbol size={28} name="doc.text.fill" color={color} />,
