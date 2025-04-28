@@ -5,26 +5,31 @@ import { Platform } from 'react-native';
 import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { CustomTabBar } from '@/components/CustomTabBar';
 
 export default function TabLayout() {
     const colorScheme = useColorScheme();
 
     return (
         <Tabs
+            tabBar={(props) => <CustomTabBar {...props} />}
             screenOptions={{
-                tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+                tabBarActiveTintColor: '#FFEB3B',
+                tabBarInactiveTintColor: '#0055B3',
                 headerShown: false,
                 tabBarButton: HapticTab,
-                tabBarBackground: TabBarBackground,
                 tabBarStyle: Platform.select({
                     ios: {
                         position: 'absolute',
+                        backgroundColor: 'white',
                     },
-                    default: {},
+                    default: {
+                        backgroundColor: 'white',
+                    },
                 }),
-            }}>
+            }}
+        >
             <Tabs.Screen
                 name="index"
                 options={{
@@ -43,7 +48,7 @@ export default function TabLayout() {
                 name="Internaat"
                 options={{
                     title: 'Internaat',
-                    tabBarIcon: ({ color }) => <IconSymbol size={28} name="    'building.2.fill': 'apartment'," color={color} />,
+                    tabBarIcon: ({ color }) => <IconSymbol size={28} name="building.2.fill" color={color} />,
                 }}
             />
             <Tabs.Screen

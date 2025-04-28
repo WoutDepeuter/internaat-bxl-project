@@ -36,7 +36,7 @@ export function IconSymbol({
     weight?: SymbolWeight;
 }) {
     // Get the mapped icon name or use a default
-    const iconName = MAPPING[name] || 'help_outline';
+    const iconName = MAPPING[name] || 'help';
 
     return (
         <MaterialIcons
