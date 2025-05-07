@@ -17,12 +17,13 @@ export function CustomTabBar(props) {
 
 const styles = StyleSheet.create({
     container: {
-        position: 'relative',
+
+
+
     },
     logo: {
         position: 'absolute',
         top: -10,
-
         width: 60,
         height: 60,
         zIndex: 10,
