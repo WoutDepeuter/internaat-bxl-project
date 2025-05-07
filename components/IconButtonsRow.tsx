@@ -1,8 +1,8 @@
 import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 const icons = [
-    require('@/assets/images/homepage/icoon-internaat.png'),
     require('@/assets/images/homepage/icoon-donbosco.png'),
+    require('@/assets/images/homepage/icoon-internaat.png'),
     require('@/assets/images/homepage/icoon-inschrijven.png'),
     require('@/assets/images/homepage/icoon-contact.png'),
 ];
