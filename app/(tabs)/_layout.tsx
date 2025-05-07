@@ -15,7 +15,7 @@ export default function TabLayout() {
             tabBar={(props) => <CustomTabBar {...props} />}
             screenOptions={{
                 tabBarActiveTintColor: '#FFEB3B',
-                tabBarInactiveTintColor: '#0055B3',
+                tabBarInactiveTintColor:'#0055B3',
                 headerShown: false,
                 tabBarButton: HapticTab,
                 tabBarStyle: Platform.select({
