@@ -24,12 +24,12 @@ export default function ImageSlider() {
                 horizontal
                 pagingEnabled
                 showsHorizontalScrollIndicator={false}
-                onScroll={onScroll}
+                onMomentumScrollEnd={onScroll} // more reliable than onScroll
                 scrollEventThrottle={16}
                 style={styles.scrollView}
             >
                 {images.map((image, index) => (
-                    <Image key={index} source={image} style={styles.image} />
+                    <Image key={index} source={image} style={styles.image} resizeMode="cover" />
                 ))}
             </ScrollView>
 
