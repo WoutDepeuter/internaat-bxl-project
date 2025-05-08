@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { AntDesign } from '@expo/vector-icons';
 
 const { width: screenWidth } = Dimensions.get('window');
-const componentWidth = screenWidth * 0.5;
-const imageWidth = componentWidth * 0.4;
+const componentWidth = screenWidth * 0.8;
+const imageWidth = 400;
 
 const items = [
     {
@@ -57,47 +57,40 @@ export default function SplitSlider() {
     };
 
     return (
-        <View style={[styles.container, { width: componentWidth }]}>
-            <View style={styles.leftBackground}>
+        <View style={styles.outer}>
+            <View style={styles.leftBackground} />
+            <View style={styles.rightBackground} />
+
+            <View style={styles.contentRow}>
                 <View style={styles.imageWrapper}>
-                    <Image
-                        source={items[activeIndex].image}
-                        style={{
-                            width: imageWidth,
-                            height: 180,
-                            borderRadius: 16,
-                            resizeMode: 'contain',
-                        }}
-                    />
-                    <View style={[styles.arrowRow, { width: imageWidth }]}>
+                    <Image source={items[activeIndex].image} style={styles.image} />
+                    <View style={styles.arrowRow}>
                         <TouchableOpacity onPress={prevSlide} style={styles.arrowButton}>
-                            <AntDesign name="left" size={24} color="#333" />
+                            <AntDesign name="left" size={24} color="#FFF" />
                         </TouchableOpacity>
                         <TouchableOpacity onPress={nextSlide} style={styles.arrowButton}>
-                            <AntDesign name="right" size={24} color="#333" />
+                            <AntDesign name="right" size={24} color="#FFF" />
                         </TouchableOpacity>
                     </View>
                 </View>
-            </View>
 
-            <View style={styles.rightBackground}>
                 <View style={styles.textContainer}>
-                <View style={styles.sectionHeader}>
-                    <Text style={styles.sectionTitle}>Onze troeven</Text>
-                    <View style={styles.sectionLine} />
-                </View>
+                    <View style={styles.sectionHeader}>
+                        <Text style={styles.sectionTitle}>Onze troeven</Text>
+                        <View style={styles.sectionLine} />
+                    </View>
 
-                {items.map((item, index) => (
-                    <TouchableOpacity key={index} onPress={() => setActiveIndex(index)}>
-                        <Text
-                        style={[
-                            styles.text,
-                            index === activeIndex && styles.activeText,
-                        ]}
-                        >
-                        {item.text}
-                        </Text>
-                    </TouchableOpacity>
+                    {items.map((item, index) => (
+                        <TouchableOpacity key={index} onPress={() => setActiveIndex(index)}>
+                            <Text
+                                style={[
+                                    styles.text,
+                                    index === activeIndex && styles.activeText,
+                                ]}
+                            >
+                                {item.text}
+                            </Text>
+                        </TouchableOpacity>
                     ))}
                 </View>
             </View>
@@ -106,46 +99,74 @@ export default function SplitSlider() {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flexDirection: 'row',
-        height: 400,
+    outer: {
+        height: 600,
         alignSelf: 'center',
         marginTop: 40,
         marginBottom: 40,
-        borderRadius: 12,
         overflow: 'hidden',
-        shadowColor: '#000',
-        shadowOpacity: 0.1,
-        shadowRadius: 10,
-        elevation: 4,
+        position: 'relative',
+        width: componentWidth,
     },
     leftBackground: {
         backgroundColor: '#FFD700',
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        bottom: 0,
         width: '40%',
-        justifyContent: 'center',
-        alignItems: 'center',
     },
     rightBackground: {
         backgroundColor: '#F0F0F0',
+        position: 'absolute',
+        right: 0,
+        top: 0,
+        bottom: 0,
         width: '60%',
-        justifyContent: 'center',
     },
-    imageWrapper: {
+    contentRow: {
+        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
+        gap: 20,
+        height: '100%',
+        paddingHorizontal: 20,
+        alignSelf: 'center',
+    },
+    imageWrapper: {
+        position: 'relative',
+    },
+    image: {
+        width: imageWidth,
+        height: imageWidth,
+        resizeMode: 'cover',
     },
     arrowRow: {
+        position: 'absolute',
+        bottom: 10,
+        left: 10,
         flexDirection: 'row',
-        justifyContent: 'flex-start',
-        alignSelf: 'flex-start',
-        marginTop: 4,
-        gap: 8,
     },
     arrowButton: {
-        padding: 4,
+        backgroundColor: '#248ef2',
+        padding: 6,
     },
     textContainer: {
-        paddingHorizontal: 16,
+        flex: 1,
+    },
+    sectionHeader: {
+        marginBottom: 12,
+    },
+    sectionTitle: {
+        fontSize: 32,
+        fontWeight: 'bold',
+        color: '#0055B3',
+    },
+    sectionLine: {
+        width: 100,
+        height: 2,
+        backgroundColor: '#0055B3',
+        marginTop: 4,
     },
     text: {
         fontSize: 16,
@@ -158,19 +179,4 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFD700',
         fontWeight: 'bold',
     },
-    sectionHeader: {
-        marginBottom: 12,
-        alignItems: 'flex-start',
-      },
-      sectionTitle: {
-        fontSize: 32,
-        fontWeight: 'bold',
-        color: '#0055B3',
-      },
-      sectionLine: {
-        width: 100,
-        height: 2,
-        backgroundColor: '#0055B3',
-        marginTop: 4,
-      },
 });
