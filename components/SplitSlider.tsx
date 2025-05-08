@@ -49,11 +49,15 @@ export default function SplitSlider() {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const nextSlide = () => {
-        setActiveIndex((prev) => (prev + 1) % items.length);
+        if (activeIndex < items.length - 1) {
+            setActiveIndex((prev) => prev + 1);
+        }
     };
 
     const prevSlide = () => {
-        setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
+        if (activeIndex > 0) {
+            setActiveIndex((prev) => prev - 1);
+        }
     };
 
     return (
@@ -65,10 +69,24 @@ export default function SplitSlider() {
                 <View style={styles.imageWrapper}>
                     <Image source={items[activeIndex].image} style={styles.image} />
                     <View style={styles.arrowRow}>
-                        <TouchableOpacity onPress={prevSlide} style={styles.arrowButton}>
+                        <TouchableOpacity
+                            onPress={prevSlide}
+                            style={[
+                                styles.arrowButton,
+                                activeIndex === 0 && styles.arrowButtonDisabled,
+                            ]}
+                            disabled={activeIndex === 0}
+                        >
                             <AntDesign name="left" size={24} color="#FFF" />
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={nextSlide} style={styles.arrowButton}>
+                        <TouchableOpacity
+                            onPress={nextSlide}
+                            style={[
+                                styles.arrowButton,
+                                activeIndex === items.length - 1 && styles.arrowButtonDisabled,
+                            ]}
+                            disabled={activeIndex === items.length - 1}
+                        >
                             <AntDesign name="right" size={24} color="#FFF" />
                         </TouchableOpacity>
                     </View>
@@ -150,6 +168,9 @@ const styles = StyleSheet.create({
     arrowButton: {
         backgroundColor: '#248ef2',
         padding: 6,
+    },
+    arrowButtonDisabled: {
+        backgroundColor: 'rgba(36, 142, 242, 0.5)',
     },
     textContainer: {
         flex: 1,
