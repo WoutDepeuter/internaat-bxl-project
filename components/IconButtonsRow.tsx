@@ -1,22 +1,31 @@
 import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { useRouter } from 'expo-router';
+
 
 const icons = [
-    require('@/assets/images/homepage/icoon-donbosco.png'),
-    require('@/assets/images/homepage/icoon-internaat.png'),
-    require('@/assets/images/homepage/icoon-inschrijven.png'),
-    require('@/assets/images/homepage/icoon-contact.png'),
+    { src: require('@/assets/images/homepage/icoon-donbosco.png'), route: '/Opvoeden' },
+    { src: require('@/assets/images/homepage/icoon-internaat.png'), route: '/Internaat' },
+    { src: require('@/assets/images/homepage/icoon-inschrijven.png'), route: '/Inschrijvingen' },
+    { src: require('@/assets/images/homepage/icoon-contact.png'), route: '/contact' },
 ];
 
+
 export default function IconButtonsRow() {
+    const router = useRouter();
+
     return (
         <View style={styles.row}>
             {icons.map((icon, index) => (
-                    <TouchableOpacity key={index} style={styles.button}>
-                <Image source={icon} style={styles.image} resizeMode="contain" />
+                <TouchableOpacity
+                    key={index}
+                    style={styles.button}
+                    onPress={() => router.push(icon.route)}
+                >
+                    <Image source={icon.src} style={styles.image} resizeMode="contain" />
                 </TouchableOpacity>
-    ))}
-    </View>
-);
+            ))}
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
