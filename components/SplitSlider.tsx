@@ -82,6 +82,11 @@ export default function SplitSlider() {
 
             <View style={styles.rightBackground}>
                 <View style={styles.textContainer}>
+                <View style={styles.sectionHeader}>
+                    <Text style={styles.sectionTitle}>Onze troeven</Text>
+                    <View style={styles.sectionLine} />
+                </View>
+
                 {items.map((item, index) => (
                     <TouchableOpacity key={index} onPress={() => setActiveIndex(index)}>
                         <Text
@@ -153,4 +158,19 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFD700',
         fontWeight: 'bold',
     },
+    sectionHeader: {
+        marginBottom: 12,
+        alignItems: 'flex-start',
+      },
+      sectionTitle: {
+        fontSize: 32,
+        fontWeight: 'bold',
+        color: '#0055B3',
+      },
+      sectionLine: {
+        width: 100,
+        height: 2,
+        backgroundColor: '#0055B3',
+        marginTop: 4,
+      },
 });
