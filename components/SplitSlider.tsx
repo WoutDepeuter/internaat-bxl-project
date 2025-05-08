@@ -82,16 +82,17 @@ export default function SplitSlider() {
 
             <View style={styles.rightBackground}>
                 <View style={styles.textContainer}>
-                    {items.map((item, index) => (
+                {items.map((item, index) => (
+                    <TouchableOpacity key={index} onPress={() => setActiveIndex(index)}>
                         <Text
-                            key={index}
-                            style={[
-                                styles.text,
-                                index === activeIndex && styles.activeText,
-                            ]}
+                        style={[
+                            styles.text,
+                            index === activeIndex && styles.activeText,
+                        ]}
                         >
-                            {item.text}
+                        {item.text}
                         </Text>
+                    </TouchableOpacity>
                     ))}
                 </View>
             </View>
