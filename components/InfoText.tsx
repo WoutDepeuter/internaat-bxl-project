@@ -1,4 +1,5 @@
 import { Text, View, StyleSheet } from 'react-native';
+import SplitSlider from './SplitSlider';
 
 export default function InfoText() {
     return (
