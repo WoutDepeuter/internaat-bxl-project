@@ -1,6 +1,5 @@
-import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity, useWindowDimensions } from 'react-native';
 import { useRouter } from 'expo-router';
-
 
 const icons = [
     { src: require('@/assets/images/homepage/icoon-donbosco.png'), route: '/Opvoeden' },
@@ -9,16 +8,17 @@ const icons = [
     { src: require('@/assets/images/homepage/icoon-contact.png'), route: '/contact' },
 ];
 
-
 export default function IconButtonsRow() {
     const router = useRouter();
+    const { width } = useWindowDimensions();
+    const isMobile = width < 500;
 
     return (
-        <View style={styles.row}>
+        <View style={[styles.row, isMobile && styles.rowMobile]}>
             {icons.map((icon, index) => (
                 <TouchableOpacity
                     key={index}
-                    style={styles.button}
+                    style={[styles.button, isMobile && styles.buttonMobile]}
                     onPress={() => router.push(icon.route)}
                 >
                     <Image source={icon.src} style={styles.image} resizeMode="contain" />
@@ -35,7 +35,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#F2F2F2',
         paddingVertical: 24,
-        gap: 24, // spacing between buttons
+        gap: 24,
+        flexWrap: 'wrap',
+    },
+    rowMobile: {
+        paddingHorizontal: 12,
     },
     button: {
         width: 100,
@@ -45,9 +49,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 8,
     },
+    buttonMobile: {
+        width: 80,
+        height: 80,
+        marginBottom: 16,
+    },
     image: {
         width: 50,
         height: 50,
-        tintColor: '#FFD700', // matches yellow tone
+        tintColor: '#FFD700',
     },
 });
