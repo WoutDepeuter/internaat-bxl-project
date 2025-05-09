@@ -29,8 +29,7 @@ export default function IconButtonsRow() {
                 <TouchableOpacity
                     key={index}
                     style={styles.button}
-                    onPress={() => router.navigate(icon.route)}
-                >
+                    onPress={() => router.push(icon.route)}                >
                     <Image source={icon.src} style={styles.image} resizeMode="contain" />
                 </TouchableOpacity>
             ))}
