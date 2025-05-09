@@ -157,7 +157,7 @@ const styles = StyleSheet.create({
     image: {
         width: imageWidth,
         height: imageWidth,
-        resizeMode: 'cover',
+        resizeMode: 'contain',
     },
     arrowRow: {
         position: 'absolute',
