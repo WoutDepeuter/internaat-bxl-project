@@ -62,7 +62,6 @@ const styles = StyleSheet.create({
         padding: 20,
         gap: 30,
         alignSelf: 'center',
-        borderRadius: 8,
     },
     logo: {
         width: 200,
