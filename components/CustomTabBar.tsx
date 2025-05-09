@@ -10,22 +10,28 @@ export function CustomTabBar(props) {
                 style={styles.logo}
                 resizeMode="contain"
             />
-            <BottomTabBar {...props} />
+            <View style={styles.tabWrapper}>
+                <BottomTabBar {...props} />
+            </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-
-
-
+        position: 'relative',
+        alignItems: 'center',
+        backgroundColor: '#F0F0F0',
     },
     logo: {
         position: 'absolute',
-        top: -10,
+        top: -15,
         width: 60,
         height: 60,
         zIndex: 10,
+    },
+    tabWrapper: {
+        paddingTop: 30,
+        width: '100%',
     },
 });
