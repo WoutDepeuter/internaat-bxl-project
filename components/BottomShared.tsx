@@ -1,11 +1,11 @@
-import { View, Text, Image, StyleSheet, Dimensions, Animated } from 'react-native';
+import { View, Text, Image, StyleSheet, Dimensions, Animated, useWindowDimensions } from 'react-native';
 import { useEffect, useRef } from 'react';
 import EnvelopeIcon from '@/assets/svgs/shared/envelope-regular.svg';
 import PhoneIcon from '@/assets/svgs/shared/mobile-screen-button-solid.svg';
 
-const { width } = Dimensions.get('window');
-
 export default function BottomShared({ visible }: { visible: boolean }) {
+    const { width } = useWindowDimensions();
+    const isMobile = width < 500;
     const scaleAnim = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
@@ -19,13 +19,22 @@ export default function BottomShared({ visible }: { visible: boolean }) {
     }, [visible]);
 
     return (
-        <Animated.View style={[styles.container, { transform: [{ scale: scaleAnim }] }]}>
+        <Animated.View
+            style={[
+                styles.container,
+                {
+                    flexDirection: isMobile ? 'column' : 'row',
+                    width: isMobile ? '90%' : width * 0.6,
+                },
+                { transform: [{ scale: scaleAnim }] },
+            ]}
+        >
             <Image
                 source={require('@/assets/images/shared/onderwijs-brussel.png')}
-                style={styles.logo}
+                style={[styles.logo, isMobile && styles.logoMobile]}
                 resizeMode="contain"
             />
-            <View style={styles.textContainer}>
+            <View style={[styles.textContainer, isMobile && styles.textContainerMobile]}>
                 <Text style={styles.title}>Don Bosco internaat Brussel</Text>
                 <Text style={styles.smallerTitle}>
                     Nederlandstalig autonoom en vrij internaat voor jongeren vanaf 10 jaar
@@ -48,43 +57,52 @@ export default function BottomShared({ visible }: { visible: boolean }) {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#F0F0F0',
-        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
         padding: 20,
         gap: 30,
-        width: width * 0.6,
         alignSelf: 'center',
+        borderRadius: 8,
     },
     logo: {
         width: 200,
         height: 200,
     },
+    logoMobile: {
+        marginBottom: 20,
+    },
     textContainer: {
-        maxWidth: width * 0.6,
+        maxWidth: 500,
+    },
+    textContainerMobile: {
+        alignItems: 'center',
     },
     title: {
         fontWeight: 'bold',
         fontSize: 18,
         color: '#0055B3',
         marginBottom: 4,
+        textAlign: 'center',
     },
     smallerTitle: {
         fontSize: 16,
         color: '#3e8ef2',
         marginBottom: 8,
+        textAlign: 'center',
     },
     text: {
         fontSize: 14,
         color: '#333',
         lineHeight: 20,
         fontWeight: '700',
+        textAlign: 'center',
     },
     row: {
         flexDirection: 'row',
         alignItems: 'center',
         gap: 8,
         marginTop: 4,
+        justifyContent: 'center',
     },
     icon: {
         marginRight: 6,
