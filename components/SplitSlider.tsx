@@ -1,10 +1,6 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, useWindowDimensions } from 'react-native';
 import { useState } from 'react';
 import { AntDesign } from '@expo/vector-icons';
-
-const { width: screenWidth } = Dimensions.get('window');
-const componentWidth = screenWidth * 0.8;
-const imageWidth = 400;
 
 const items = [
     {
@@ -47,6 +43,8 @@ const items = [
 
 export default function SplitSlider() {
     const [activeIndex, setActiveIndex] = useState(0);
+    const { width } = useWindowDimensions();
+    const isMobile = width < 500;
 
     const nextSlide = () => {
         if (activeIndex < items.length - 1) {
@@ -61,30 +59,29 @@ export default function SplitSlider() {
     };
 
     return (
-        <View style={styles.outer}>
-            <View style={styles.leftBackground} />
-            <View style={styles.rightBackground} />
+        <View style={[styles.outer, {
+            width: isMobile ? '90%' : width * 0.8,
+            height: isMobile ? 'auto' : 600,
+            flexDirection: isMobile ? 'column' : 'row',
+        }]}>
+            {/* Background overlays */}
+            <View style={[isMobile ? styles.topBackgroundMobile : styles.leftBackground]} />
+            <View style={[isMobile ? styles.bottomBackgroundMobile : styles.rightBackground]} />
 
-            <View style={styles.contentRow}>
+            <View style={[styles.contentRow, { flexDirection: isMobile ? 'column' : 'row' }]}>
                 <View style={styles.imageWrapper}>
-                    <Image source={items[activeIndex].image} style={styles.image} />
+                    <Image source={items[activeIndex].image} style={[styles.image, isMobile && styles.imageMobile]} />
                     <View style={styles.arrowRow}>
                         <TouchableOpacity
                             onPress={prevSlide}
-                            style={[
-                                styles.arrowButton,
-                                activeIndex === 0 && styles.arrowButtonDisabled,
-                            ]}
+                            style={[styles.arrowButton, activeIndex === 0 && styles.arrowButtonDisabled]}
                             disabled={activeIndex === 0}
                         >
                             <AntDesign name="left" size={24} color="#FFF" />
                         </TouchableOpacity>
                         <TouchableOpacity
                             onPress={nextSlide}
-                            style={[
-                                styles.arrowButton,
-                                activeIndex === items.length - 1 && styles.arrowButtonDisabled,
-                            ]}
+                            style={[styles.arrowButton, activeIndex === items.length - 1 && styles.arrowButtonDisabled]}
                             disabled={activeIndex === items.length - 1}
                         >
                             <AntDesign name="right" size={24} color="#FFF" />
@@ -92,7 +89,7 @@ export default function SplitSlider() {
                     </View>
                 </View>
 
-                <View style={styles.textContainer}>
+                <View style={[styles.textContainer, isMobile && styles.textContainerMobile]}>
                     <View style={styles.sectionHeader}>
                         <Text style={styles.sectionTitle}>Onze troeven</Text>
                         <View style={styles.sectionLine} />
@@ -101,10 +98,7 @@ export default function SplitSlider() {
                     {items.map((item, index) => (
                         <TouchableOpacity key={index} onPress={() => setActiveIndex(index)}>
                             <Text
-                                style={[
-                                    styles.text,
-                                    index === activeIndex && styles.activeText,
-                                ]}
+                                style={[styles.text, index === activeIndex && styles.activeText]}
                             >
                                 {item.text}
                             </Text>
@@ -118,46 +112,65 @@ export default function SplitSlider() {
 
 const styles = StyleSheet.create({
     outer: {
-        height: 600,
         alignSelf: 'center',
         marginTop: 40,
         marginBottom: 40,
         overflow: 'hidden',
         position: 'relative',
-        width: componentWidth,
     },
     leftBackground: {
         backgroundColor: '#FFD700',
         position: 'absolute',
-        left: 0,
         top: 0,
         bottom: 0,
+        left: 0,
         width: '40%',
+        zIndex: -1,
     },
     rightBackground: {
         backgroundColor: '#F0F0F0',
         position: 'absolute',
-        right: 0,
         top: 0,
         bottom: 0,
+        right: 0,
         width: '60%',
+        zIndex: -1,
+    },
+    topBackgroundMobile: {
+        backgroundColor: '#FFD700',
+        position: 'absolute',
+        top: 0,
+        height: '40%',
+        left: 0,
+        right: 0,
+        zIndex: -1,
+    },
+    bottomBackgroundMobile: {
+        backgroundColor: '#F0F0F0',
+        position: 'absolute',
+        bottom: 0,
+        height: '60%',
+        left: 0,
+        right: 0,
+        zIndex: -1,
     },
     contentRow: {
-        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
         gap: 20,
-        height: '100%',
         paddingHorizontal: 20,
-        alignSelf: 'center',
     },
     imageWrapper: {
         position: 'relative',
     },
     image: {
-        width: imageWidth,
-        height: imageWidth,
+        width: 400,
+        height: 400,
         resizeMode: 'contain',
+    },
+    imageMobile: {
+        width: 300,
+        height: 300,
     },
     arrowRow: {
         position: 'absolute',
@@ -168,12 +181,17 @@ const styles = StyleSheet.create({
     arrowButton: {
         backgroundColor: '#248ef2',
         padding: 6,
+        marginRight: 10,
     },
     arrowButtonDisabled: {
         backgroundColor: 'rgba(36, 142, 242, 0.5)',
     },
     textContainer: {
         flex: 1,
+    },
+    textContainerMobile: {
+        marginTop: 20,
+        width: '100%',
     },
     sectionHeader: {
         marginBottom: 12,
