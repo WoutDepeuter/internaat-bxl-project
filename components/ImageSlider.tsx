@@ -1,6 +1,7 @@
 
 import { Image, StyleSheet, Text, View, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
-import { useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
+
 
 const { width } = Dimensions.get('window');
 
@@ -12,22 +13,34 @@ const images = [
 
 export default function ImageSlider() {
     const [activeIndex, setActiveIndex] = useState(0);
+    const scrollRef = useRef<ScrollView>(null);
+
 
     const onScroll = (event: any) => {
         const slide = Math.round(event.nativeEvent.contentOffset.x / width);
         setActiveIndex(slide);
     };
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const nextIndex = (activeIndex + 1) % images.length;
+            scrollRef.current?.scrollTo({ x: nextIndex * width, animated: true });
+            setActiveIndex(nextIndex);
+        }, 4000);
+        return () => clearInterval(interval);
+    }, [activeIndex]);
+
     return (
         <View style={styles.container}>
-            <ScrollView
-                horizontal
-                pagingEnabled
-                showsHorizontalScrollIndicator={false}
-                onMomentumScrollEnd={onScroll} // more reliable than onScroll
-                scrollEventThrottle={16}
-                style={styles.scrollView}
-            >
+        <ScrollView
+            ref={scrollRef}
+            horizontal
+            pagingEnabled
+            showsHorizontalScrollIndicator={false}
+            onMomentumScrollEnd={onScroll}
+            scrollEventThrottle={16}
+            style={styles.scrollView}
+        >
                 {images.map((image, index) => (
                     <Image key={index} source={image} style={styles.image} resizeMode="cover" />
                 ))}
