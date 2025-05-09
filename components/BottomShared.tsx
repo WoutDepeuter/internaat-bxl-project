@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     smallerTitle: {
         fontSize: 16,
         color: '#3e8ef2',
-        marginBottom: 8,
+        marginBottom: 32,
     },
     text: {
         fontSize: 14,
