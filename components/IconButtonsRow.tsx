@@ -1,31 +1,22 @@
-import { View, Image, StyleSheet, TouchableOpacity, useWindowDimensions } from 'react-native';
-import { useRouter } from 'expo-router';
+import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 const icons = [
-    { src: require('@/assets/images/homepage/icoon-donbosco.png'), route: '/Opvoeden' },
-    { src: require('@/assets/images/homepage/icoon-internaat.png'), route: '/Internaat' },
-    { src: require('@/assets/images/homepage/icoon-inschrijven.png'), route: '/Inschrijvingen' },
-    { src: require('@/assets/images/homepage/icoon-contact.png'), route: '/contact' },
+    require('@/assets/images/homepage/icoon-donbosco.png'),
+    require('@/assets/images/homepage/icoon-internaat.png'),
+    require('@/assets/images/homepage/icoon-inschrijven.png'),
+    require('@/assets/images/homepage/icoon-contact.png'),
 ];
 
 export default function IconButtonsRow() {
-    const router = useRouter();
-    const { width } = useWindowDimensions();
-    const isMobile = width < 500;
-
     return (
-        <View style={[styles.row, isMobile && styles.rowMobile]}>
+        <View style={styles.row}>
             {icons.map((icon, index) => (
-                <TouchableOpacity
-                    key={index}
-                    style={[styles.button, isMobile && styles.buttonMobile]}
-                    onPress={() => router.push(icon.route)}
-                >
-                    <Image source={icon.src} style={styles.image} resizeMode="contain" />
+                    <TouchableOpacity key={index} style={styles.button}>
+                <Image source={icon} style={styles.image} resizeMode="contain" />
                 </TouchableOpacity>
-            ))}
-        </View>
-    );
+    ))}
+    </View>
+);
 }
 
 const styles = StyleSheet.create({
@@ -35,11 +26,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#F2F2F2',
         paddingVertical: 24,
-        gap: 24,
-        flexWrap: 'wrap',
-    },
-    rowMobile: {
-        paddingHorizontal: 12,
+        gap: 24, // spacing between buttons
     },
     button: {
         width: 100,
@@ -49,14 +36,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 8,
     },
-    buttonMobile: {
-        width: 80,
-        height: 80,
-        marginBottom: 16,
-    },
     image: {
         width: 50,
         height: 50,
-        tintColor: '#FFD700',
+        tintColor: '#FFD700', // matches yellow tone
     },
 });
