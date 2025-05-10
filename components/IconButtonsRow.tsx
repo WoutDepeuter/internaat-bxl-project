@@ -1,22 +1,41 @@
 import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { useRouter } from 'expo-router';
 
 const icons = [
-    require('@/assets/images/homepage/icoon-donbosco.png'),
-    require('@/assets/images/homepage/icoon-internaat.png'),
-    require('@/assets/images/homepage/icoon-inschrijven.png'),
-    require('@/assets/images/homepage/icoon-contact.png'),
+    {
+        source: require('@/assets/images/homepage/icoon-donbosco.png'),
+        route: '/Opvoeden',
+    },
+    {
+        source: require('@/assets/images/homepage/icoon-internaat.png'),
+        route: '/Internaat',
+    },
+    {
+        source: require('@/assets/images/homepage/icoon-inschrijven.png'),
+        route: '/Inschrijvingen',
+    },
+    {
+        source: require('@/assets/images/homepage/icoon-contact.png'),
+        route: '/contact',
+    },
 ];
 
 export default function IconButtonsRow() {
+    const router = useRouter();
+
     return (
         <View style={styles.row}>
             {icons.map((icon, index) => (
-                    <TouchableOpacity key={index} style={styles.button}>
-                <Image source={icon} style={styles.image} resizeMode="contain" />
+                <TouchableOpacity
+                    key={index}
+                    style={styles.button}
+                    onPress={() => router.push(icon.route)}
+                >
+                    <Image source={icon.source} style={styles.image} resizeMode="contain" />
                 </TouchableOpacity>
-    ))}
-    </View>
-);
+            ))}
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
@@ -26,7 +45,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#F2F2F2',
         paddingVertical: 24,
-        gap: 24, // spacing between buttons
+        gap: 24,
     },
     button: {
         width: 100,
@@ -39,6 +58,6 @@ const styles = StyleSheet.create({
     image: {
         width: 50,
         height: 50,
-        tintColor: '#FFD700', // matches yellow tone
+        tintColor: '#FFD700',
     },
 });
