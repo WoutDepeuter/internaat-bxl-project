@@ -38,9 +38,8 @@ const testimonials = [
     },
 ];
 
-const CARD_WIDTH = 800;
-
 export default function TestimonialCarousel() {
+    const windowWidth = Dimensions.get('window').width;
     const scrollX = useRef(new Animated.Value(0)).current;
     const flatListRef = useRef<FlatList>(null);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -49,10 +48,21 @@ export default function TestimonialCarousel() {
         const nextIndex = currentIndex + 1;
         if (nextIndex < testimonials.length) {
             flatListRef.current?.scrollToOffset({
-                offset: nextIndex * CARD_WIDTH,
+                offset: nextIndex * windowWidth,
                 animated: true,
             });
             setCurrentIndex(nextIndex);
+        }
+    };
+
+    const handlePrev = () => {
+        const prevIndex = currentIndex - 1;
+        if (prevIndex >= 0) {
+            flatListRef.current?.scrollToOffset({
+                offset: prevIndex * windowWidth,
+                animated: true,
+            });
+            setCurrentIndex(prevIndex);
         }
     };
 
@@ -67,23 +77,26 @@ export default function TestimonialCarousel() {
                 snapToAlignment="center"
                 decelerationRate="fast"
                 showsHorizontalScrollIndicator={false}
-                keyExtractor={(item) => item.name}
                 data={testimonials}
+                keyExtractor={(item) => item.name}
+                scrollEventThrottle={16}
+                initialNumToRender={1}
+                maxToRenderPerBatch={1}
+                windowSize={2}
                 onScroll={Animated.event(
                     [{ nativeEvent: { contentOffset: { x: scrollX } } }],
                     {
                         useNativeDriver: false,
                         listener: (event) => {
                             const index = Math.round(
-                                event.nativeEvent.contentOffset.x / CARD_WIDTH
+                                event.nativeEvent.contentOffset.x / windowWidth
                             );
                             setCurrentIndex(index);
                         },
                     }
                 )}
-                scrollEventThrottle={16}
                 renderItem={({ item }) => (
-                    <View style={styles.slide}>
+                    <View style={[styles.slide, { width: windowWidth }]}>
                         <TestimonialCard
                             name={item.name}
                             age={item.age}
@@ -98,9 +111,9 @@ export default function TestimonialCarousel() {
             <View style={styles.pagination}>
                 {testimonials.map((_, index) => {
                     const inputRange = [
-                        (index - 1) * CARD_WIDTH,
-                        index * CARD_WIDTH,
-                        (index + 1) * CARD_WIDTH,
+                        (index - 1) * windowWidth,
+                        index * windowWidth,
+                        (index + 1) * windowWidth,
                     ];
 
                     const dotWidth = scrollX.interpolate({
@@ -130,6 +143,13 @@ export default function TestimonialCarousel() {
                     <MaterialIcons name="arrow-forward-ios" size={24} color="#1D4ED8" />
                 </TouchableOpacity>
             )}
+
+            {/* Blue Previous Button */}
+            {currentIndex > 0 && (
+                <TouchableOpacity style={styles.prevButton} onPress={handlePrev}>
+                    <MaterialIcons name="arrow-back-ios" size={24} color="#1D4ED8" />
+                </TouchableOpacity>
+            )}
         </View>
     );
 }
@@ -151,8 +171,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     slide: {
-        width: CARD_WIDTH,
-        alignSelf: 'center',
+        alignItems: 'center',
     },
     pagination: {
         flexDirection: 'row',
@@ -170,6 +189,15 @@ const styles = StyleSheet.create({
         bottom: 20,
         right: 40,
         backgroundColor: '#FACC15',
+        padding: 12,
+        borderRadius: 30,
+        elevation: 4,
+    },
+    prevButton: {
+        position: 'absolute',
+        bottom: 20,
+        left: 40,
+        backgroundColor: '#DBEAFE',
         padding: 12,
         borderRadius: 30,
         elevation: 4,
