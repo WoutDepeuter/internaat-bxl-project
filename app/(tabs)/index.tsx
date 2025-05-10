@@ -15,6 +15,7 @@ import SplitSlider from '@/components/SplitSlider';
 import BottomShared from '@/components/BottomShared';
 import ContacteerOns from '@/components/ContacteerOns';
 import ToTopButton from '@/components/ToTopButton';
+import TestimonialCarousel from '@/components/TestimonialCarousel';
 
 export default function HomeScreen() {
     const insets = useSafeAreaInsets();
@@ -51,9 +52,16 @@ export default function HomeScreen() {
                 <InfoText />
                 <IconButtonsRow />
                 <SplitSlider />
+                <View style={styles.spacer} />
+
+                {/* ✅ Testimonial Carousel inserted here */}
+                <TestimonialCarousel />
+                <View style={styles.spacer} />
+
                 <View ref={bottomRef}>
                     <BottomShared visible={isBottomVisible} />
                 </View>
+
                 <ContacteerOns />
             </ScrollView>
 
