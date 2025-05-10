@@ -1,26 +1,37 @@
-import { StyleSheet, View, SafeAreaView, ScrollView, useWindowDimensions } from 'react-native';
+import {
+    StyleSheet,
+    View,
+    SafeAreaView,
+    ScrollView,
+    useWindowDimensions,
+} from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRef, useState } from 'react';
 
 import ImageSlider from '@/components/ImageSlider';
-import InfoText from "@/components/InfoText";
-import IconButtonsRow from "@/components/IconButtonsRow";
+import InfoText from '@/components/InfoText';
+import IconButtonsRow from '@/components/IconButtonsRow';
 import SplitSlider from '@/components/SplitSlider';
 import BottomShared from '@/components/BottomShared';
 import ContacteerOns from '@/components/ContacteerOns';
+import ToTopButton from '@/components/ToTopButton';
 
 export default function HomeScreen() {
     const insets = useSafeAreaInsets();
-    const [isBottomVisible, setIsBottomVisible] = useState(false);
+    const scrollRef = useRef<ScrollView>(null);
     const bottomRef = useRef<View>(null);
     const { height: windowHeight } = useWindowDimensions();
 
-    const handleScroll = (event: any) => {
-        bottomRef.current?.measure((x, y, width, height, pageX, pageY) => {
-            const scrollY = event.nativeEvent.contentOffset.y;
-            const screenBottom = scrollY + windowHeight;
+    const [isBottomVisible, setIsBottomVisible] = useState(false);
+    const [showToTop, setShowToTop] = useState(false);
 
-            // pageY is the top of the component on the screen
+    const handleScroll = (event: any) => {
+        const scrollY = event.nativeEvent.contentOffset.y;
+
+        setShowToTop(scrollY > windowHeight * 0.1);
+
+        bottomRef.current?.measure((x, y, width, height, pageX, pageY) => {
+            const screenBottom = scrollY + windowHeight;
             if (pageY < screenBottom) {
                 setIsBottomVisible(true);
             }
@@ -29,7 +40,12 @@ export default function HomeScreen() {
 
     return (
         <SafeAreaView style={[styles.safeArea, { paddingBottom: insets.bottom }]}>
-            <ScrollView contentContainerStyle={styles.container} onScroll={handleScroll} scrollEventThrottle={16}>
+            <ScrollView
+                ref={scrollRef}
+                contentContainerStyle={styles.container}
+                onScroll={handleScroll}
+                scrollEventThrottle={16}
+            >
                 <ImageSlider />
                 <View style={styles.spacer} />
                 <InfoText />
@@ -40,6 +56,10 @@ export default function HomeScreen() {
                 </View>
                 <ContacteerOns />
             </ScrollView>
+
+            {showToTop && (
+                <ToTopButton onPress={() => scrollRef.current?.scrollTo({ y: 0, animated: true })} />
+            )}
         </SafeAreaView>
     );
 }
