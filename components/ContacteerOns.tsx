@@ -17,37 +17,39 @@ export default function ContactForm() {
         <ImageBackground
             source={backgroundImage}
             style={styles.background}
-            imageStyle={{ opacity: 0.50 }} // transparent image over solid color
+            imageStyle={{ opacity: 0.5 }}
             resizeMode="cover"
         >
             <View style={styles.container}>
-                <Text style={styles.title}>Contacteer ons</Text>
-                <View style={styles.underline} />
+                <View style={styles.formWrapper}>
+                    <Text style={styles.title}>Contacteer ons</Text>
+                    <View style={styles.underline} />
 
-                <Text style={styles.subtitle}>
-                    Heeft u nog vragen of wenst u meer informatie, aarzel dan niet om ons te contacteren.
-                    Dit kan u snel en eenvoudig door onderstaand formulier in te vullen en te verzenden.
-                </Text>
+                    <Text style={styles.subtitle}>
+                        Heeft u nog vragen of wenst u meer informatie, aarzel dan niet om ons te contacteren.
+                        Dit kan u snel en eenvoudig door onderstaand formulier in te vullen en te verzenden.
+                    </Text>
 
-                <View style={styles.inputGrid}>
-                    <TextInput placeholder="Naam" placeholderTextColor="#79a9d8" style={styles.input} />
-                    <TextInput placeholder="Email" placeholderTextColor="#79a9d8" style={styles.input} />
-                    <TextInput placeholder="Telefoon" placeholderTextColor="#79a9d8" style={styles.input} />
-                    <TextInput placeholder="Onderwerp" placeholderTextColor="#79a9d8" style={styles.input} />
+                    <View style={styles.inputGrid}>
+                        <TextInput placeholder="Naam" placeholderTextColor="#79a9d8" style={styles.input} />
+                        <TextInput placeholder="Email" placeholderTextColor="#79a9d8" style={styles.input} />
+                        <TextInput placeholder="Telefoon" placeholderTextColor="#79a9d8" style={styles.input} />
+                        <TextInput placeholder="Onderwerp" placeholderTextColor="#79a9d8" style={styles.input} />
+                    </View>
+
+                    <TextInput
+                        placeholder="Bericht"
+                        placeholderTextColor="#79a9d8"
+                        style={styles.textArea}
+                        multiline
+                        numberOfLines={5}
+                        textAlignVertical="top"
+                    />
+
+                    <TouchableOpacity style={styles.button}>
+                        <Text style={styles.buttonText}>Verzenden</Text>
+                    </TouchableOpacity>
                 </View>
-
-                <TextInput
-                    placeholder="Bericht"
-                    placeholderTextColor="#79a9d8"
-                    style={styles.textArea}
-                    multiline
-                    numberOfLines={5}
-                    textAlignVertical="top"
-                />
-
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Verzenden</Text>
-                </TouchableOpacity>
             </View>
         </ImageBackground>
     );
@@ -60,8 +62,13 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     container: {
-        padding: 20,
         flex: 1,
+        padding: 20,
+        alignItems: 'center',
+    },
+    formWrapper: {
+        width: '100%',
+        maxWidth: 700,
     },
     title: {
         fontSize: 28,
@@ -83,7 +90,6 @@ const styles = StyleSheet.create({
         marginBottom: 24,
         textAlign: 'center',
     },
-
     inputGrid: {
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -95,7 +101,7 @@ const styles = StyleSheet.create({
         color: '#2861b7',
         padding: 12,
         marginBottom: 12,
-        width: (width - 60) / 2,
+        flexBasis: '48%',
     },
     textArea: {
         backgroundColor: '#ffffff',
