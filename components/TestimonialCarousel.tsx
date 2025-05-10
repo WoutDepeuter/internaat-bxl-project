@@ -16,25 +16,38 @@ const testimonials = [
         name: 'Izayana',
         age: '11 jaar',
         image: require('../assets/images/homepage/Izayana.jpeg'),
-        text: `Het internaat is gewoon fantastisch. Ik leer hier veel gemakkelijker...`,
+        text: `Het internaat is gewoon fantastisch.\n
+Ik leer hier veel gemakkelijker. De opvoeders helpen me gewoon altijd.\n
+Ik leef hier samen met anderen. Mijn vrienden zijn zoals mijn familie. Het was heel spannend om met anderen een kamer te delen. Je leert er op een respectvolle manier met elkaar omgaan.\n
+De activiteiten zijn best leuk. Zo zijn we naar het trampolinepark Jump XL gegaan en ook gaan schaatsen. Tijdens onze vrije tijd spelen we vaak samen op de speelplaats.\n
+Op het internaat luisteren de opvoeders echt naar ons. Je mag ook zeggen wat er niet goed is. En als je je niet goed voelt, luistert en helpt de opvoeder of ze geven een pilletje. Zelfs de chef-kok doet mee. Hij past soms het eten aan onze wensen aan. Het eten is hier geweldig.`,
     },
     {
         name: 'Lenny',
         age: '15 jaar',
         image: require('../assets/images/homepage/Lenny.jpeg'),
-        text: `Ik vind het internaat heel tof. Ik voel me hier veilig en gelukkig...`,
+        text: `Ik vind het internaat heel tof. Ik voel me hier veilig en gelukkig. Dat is nieuw voor mij want thuis had ik het niet zo gemakkelijk. Ik heb hier veel vrienden waar ik altijd veel plezier mee heb. Op woensdag zijn er altijd leuke activiteiten. Vooral koken doe ik graag!`,
     },
     {
         name: 'Dylan',
         age: '16 jaar',
         image: require('../assets/images/homepage/Dylan.jpeg'),
-        text: `Ik ben Dylan. Ik zit al 7 jaar op het internaat...`,
+        text: `Ik ben Dylan. Ik zit al 7 jaar op het internaat.\n
+Ik ben in september begonnen in het jaar dat ik 10 jaar oud werd. Ik was niet bang om te komen, want ik wou bij mijn vrienden zijn. Hierdoor voelde ik mij direct thuis op het internaat. Ik heb nooit echt heimwee naar huis ervaren.\n
+Tegenover andere internaten, zorgt dit internaat dat wij ons goed voelen en gesteund. We zijn geen nummer. De opvoeders zijn echt met ons begaan.\n
+Nu na 7 jaar is het internaat echt een deel van mijn leven. Het internaat heeft mij gemaakt tot de persoon die ik nu ben.`,
     },
     {
         name: 'Aurore',
         age: '18 jaar',
         image: require('../assets/images/homepage/Aurore.jpeg'),
-        text: `Het internaat Don Bosco is 4 jaar geleden de thuis geworden...`,
+        text: `Het internaat Don Bosco is 4 jaar geleden de thuis geworden voor mij.\n
+Hier hebben ze mij aanvaard zoals ik ben. Het opvoedersteam heeft mij geholpen in moeilijke tijden.\n
+Samen met hen is het me gelukt om de problemen achter me te laten en te bouwen aan mijn toekomst.\n
+Hier heb ik geleerd om te communiceren met respect en eerlijkheid, zonder andere personen te kwetsen.\n
+Ik heb hier vrienden ontmoet voor het leven. Ik heb zelfs geleerd om vrienden te maken buiten mijn comfortzone.\n
+De opvoeders staan altijd achter mij. Het internaat zal me nooit laten vallen. Dat heb ik hier zelf mogen ervaren.\n
+Kort gezegd: ik ben hier graag!`,
     },
 ];
 
