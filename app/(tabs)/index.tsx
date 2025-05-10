@@ -7,6 +7,7 @@ import InfoText from "@/components/InfoText";
 import IconButtonsRow from "@/components/IconButtonsRow";
 import SplitSlider from '@/components/SplitSlider';
 import BottomShared from '@/components/BottomShared';
+import ContacteerOns from '@/components/ContacteerOns';
 
 export default function HomeScreen() {
     const insets = useSafeAreaInsets();
@@ -37,6 +38,7 @@ export default function HomeScreen() {
                 <View ref={bottomRef}>
                     <BottomShared visible={isBottomVisible} />
                 </View>
+                <ContacteerOns />
             </ScrollView>
         </SafeAreaView>
     );
