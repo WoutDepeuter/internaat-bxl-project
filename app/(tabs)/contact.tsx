@@ -1,22 +1,17 @@
-import { StyleSheet, Linking, TouchableOpacity } from 'react-native';
-
+import { StyleSheet } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
+import LiggingInternaat from '@/components/LiggingInternaat';
+
+import ContactInfo from '@/components/ContactInfo';
+import Bereikbaarheid from "@/components/Bereikbaarheid"; // your styled contact section
 
 export default function ContactScreen() {
-    const handleEmailPress = () => {
-        Linking.openURL('mailto:woluwe.internaat@donbosco.be');
-    };
-
-    const handlePhonePress = () => {
-        Linking.openURL('tel:+0473 21 81 54');
-    };
-
     return (
         <ParallaxScrollView
-            headerBackgroundColor={{ light: '#E0E0E0', dark: '#2C2C2C' }}
+            headerBackgroundColor={{ light: '#FFFFFF', dark: '#1A1A1A' }} // Adjust dark mode if needed
             headerImage={
                 <IconSymbol
                     size={310}
@@ -24,31 +19,16 @@ export default function ContactScreen() {
                     name="person.crop.circle.fill"
                     style={styles.headerImage}
                 />
-            }>
+            }
+            contentContainerStyle={styles.scrollContent} // Add this line
+        >
             <ThemedView style={styles.titleContainer}>
-                <ThemedText type="title">Contact Us</ThemedText>
+                <ThemedText type="title">Contacteer ons</ThemedText>
             </ThemedView>
 
-            <ThemedView style={styles.contactContainer}>
-                <ThemedText type="subtitle">Get in Touch</ThemedText>
-
-                <TouchableOpacity onPress={handleEmailPress} style={styles.contactMethod}>
-                    <IconSymbol name="envelope.fill" size={24} color="#007AFF" />
-                    <ThemedText style={styles.contactText}>woluwe.internaat@donbosco.be</ThemedText>
-                </TouchableOpacity>
-
-                <TouchableOpacity onPress={handlePhonePress} style={styles.contactMethod}>
-                    <IconSymbol name="phone.fill" size={24} color="#007AFF" />
-                    <ThemedText style={styles.contactText}>0473 21 81 54</ThemedText>
-                </TouchableOpacity>
-
-                <ThemedView style={styles.addressContainer}>
-                    <ThemedText type="subtitle">Our Address</ThemedText>
-                    <ThemedText>
-
-                    </ThemedText>
-                </ThemedView>
-            </ThemedView>
+            <ContactInfo />
+            <LiggingInternaat />
+            <Bereikbaarheid />
         </ParallaxScrollView>
     );
 }
@@ -65,20 +45,11 @@ const styles = StyleSheet.create({
         gap: 8,
         marginBottom: 16,
     },
-    contactContainer: {
-        gap: 16,
-    },
-    contactMethod: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 12,
-        marginBottom: 12,
-    },
-    contactText: {
-        fontSize: 16,
-    },
-    addressContainer: {
-        marginTop: 16,
-        gap: 8,
+    scrollContent: {
+        backgroundColor: '#FFFFFF', // Set background to white
+        flexGrow: 1,
+        paddingHorizontal: 16,
+        paddingTop: 16,
     },
 });
+
