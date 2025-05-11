@@ -199,6 +199,75 @@ export default function SharedTopBar() {
                     </>
                 }
 
+                {activeTab === 'Onze waarden' &&
+                    <>
+                        <Text style={styles.paragraph}>
+                            Centraal in onze werking staat een{' '}
+                            <Text style={{ fontSize: 18, color: '#0761b7', fontWeight: 'bold' }}>RESPECT</Text>
+                            {' '}volle omgang met elkaar, gestoeld op de visie van Don Bosco.
+                        </Text>
+
+                        {/* Spacer */}
+                        <View style={{ height: 24 }} />
+
+                        {/* OpsommingOpvoeden placeholder */}
+                        <View style={{ marginVertical: 16 }}>
+                            {/* Replace this with your actual component later */}
+                            <Text style={[styles.subtitle, { textAlign: 'center' }]}>
+                                [OpsommingOpvoeden component komt hier/ TODO MAKE THIS]
+                            </Text>
+                        </View>
+
+                        {/* Subtitle */}
+                        <Text style={[styles.subtitle, { marginBottom: 8 }]}>
+                            Principes voor een <Text style={{ fontSize: 18, color: '#0761b7', fontWeight: 'bold' }}>RESPECT</Text>volle omgang
+                        </Text>
+
+                        {/* Spacer */}
+                        <View style={{ height: 24 }} />
+
+                        {/* Paragraph 1 */}
+                        <View style={[styles.row, isSmallScreen && styles.rowMobile]}>
+                            {/* Placeholder for icon */}
+                            <View style={styles.column}>
+                                {/* Icon comes here later */}
+                            </View>
+                            <View style={styles.textColumn}>
+                                <Text style={styles.paragraph}>
+                                    Opvoeden gebeurt midden tussen de jongeren in een hartelijke sfeer{"\n\n"}
+                                    Opvoeden gebeurt in het dagelijkse leven, bij het eten, studeren, spelen, babbelen, … De opvoeder staat – net als Don Bosco – midden tussen de jongeren. Hij is aanspreekbaar en betrokken en oprecht in hen geïnteresseerd. Hij zet zich onvoorwaardelijk voor hen in en bouwt met hen een vertrouwensband op binnen een warme, familiale en hartelijke leefomgeving.{"\n"}
+                                    Don Bosco omschreef dit als ‘je liefde voelbaar maken’.
+                                </Text>
+                            </View>
+                        </View>
+
+                        {/* Paragraph 2 */}
+                        <View style={[styles.row, isSmallScreen && styles.rowMobile]}>
+                            <View style={styles.column}>
+                                {/* Icon comes here later */}
+                            </View>
+                            <View style={styles.textColumn}>
+                                <Text style={styles.paragraph}>
+                                    Een redelijke, begripvolle omgang{"\n\n"}
+                                    Dit wil echter niet zeggen dat alles kan en mag. De opvoeder leert de jongeren situaties inschatten (zien) met een grote dosis gezond verstand (oordelen) en ernaar handelen (handelen). De opvoeder is het stootblok waartegen de jongeren soms botsen. Hij gaat hierbij telkens opnieuw begripvol in gesprek met de jongeren. Dit alles doet hij in een omgeving waarin een duidelijke structuur en regelmaat heersen.
+                                </Text>
+                            </View>
+                        </View>
+
+                        {/* Paragraph 3 */}
+                        <View style={[styles.row, isSmallScreen && styles.rowMobile]}>
+                            <View style={styles.column}>
+                                {/* Icon comes here later */}
+                            </View>
+                            <View style={styles.textColumn}>
+                                <Text style={styles.paragraph}>
+                                    Vanuit ons geloof{"\n\n"}
+                                    De waarden waarvan hierboven sprake stoelen allemaal op ons geloof in Don Bosco die ons leerde te vertrouwen in Jezus en Maria. Vanuit dit geloof koos Don Bosco voor de zwaksten. Dit doen wij vandaag ook, met respect voor de eigen inspiratie van elke jongere en vanuit ons geloof in hen.
+                                </Text>
+                            </View>
+                        </View>
+                    </>
+                }
             </ScrollView>
         </View>
     );
@@ -269,7 +338,6 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     subtitle: {
-        fontWeight: 'bold',
         fontSize: 16,
         marginBottom: 4,
     },
