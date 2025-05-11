@@ -20,6 +20,11 @@ import VolleyballIcon from '@/assets/svgs/donbosco-opvoedingsproject/volleyball-
 import HandsHeartIcon from '@/assets/svgs/donbosco-opvoedingsproject/hands-holding-heart-svgrepo-com.svg';
 const DonBoscoOpvoedingsprojectImage = require('../assets/images/donbosco-opvoedingsproject/DonBoscoOpvoedingsproject.jpeg');
 
+import IconsSolid from '@/assets/svgs/donbosco-waarden/icons-solid.svg';
+import HandshakeIcon from '@/assets/svgs/donbosco-waarden/handshake-regular.svg';
+import HandsHoldingIcon from '@/assets/svgs/donbosco-waarden/hands-holding-svgrepo-com.svg';
+
+
 
 
 const tabs = [
@@ -203,34 +208,29 @@ export default function SharedTopBar() {
                     <>
                         <Text style={styles.paragraph}>
                             Centraal in onze werking staat een{' '}
-                            <Text style={{ fontSize: 18, color: '#0761b7', fontWeight: 'bold' }}>RESPECT</Text>
+                            <Text style={styles.respectHighlight}>RESPECT</Text>
                             {' '}volle omgang met elkaar, gestoeld op de visie van Don Bosco.
                         </Text>
 
-                        {/* Spacer */}
                         <View style={{ height: 24 }} />
 
                         {/* OpsommingOpvoeden placeholder */}
                         <View style={{ marginVertical: 16 }}>
-                            {/* Replace this with your actual component later */}
                             <Text style={[styles.subtitle, { textAlign: 'center' }]}>
-                                [OpsommingOpvoeden component komt hier/ TODO MAKE THIS]
+                                [OpsommingOpvoeden component komt hier]
                             </Text>
                         </View>
 
-                        {/* Subtitle */}
                         <Text style={[styles.subtitle, { marginBottom: 8 }]}>
-                            Principes voor een <Text style={{ fontSize: 18, color: '#0761b7', fontWeight: 'bold' }}>RESPECT</Text>volle omgang
+                            Principes voor een <Text style={styles.respectHighlight}>RESPECT</Text>volle omgang
                         </Text>
 
-                        {/* Spacer */}
                         <View style={{ height: 24 }} />
 
                         {/* Paragraph 1 */}
                         <View style={[styles.row, isSmallScreen && styles.rowMobile]}>
-                            {/* Placeholder for icon */}
                             <View style={styles.column}>
-                                {/* Icon comes here later */}
+                                <IconsSolid width={40} height={40} fill="#0761b7" />
                             </View>
                             <View style={styles.textColumn}>
                                 <Text style={styles.paragraph}>
@@ -244,7 +244,7 @@ export default function SharedTopBar() {
                         {/* Paragraph 2 */}
                         <View style={[styles.row, isSmallScreen && styles.rowMobile]}>
                             <View style={styles.column}>
-                                {/* Icon comes here later */}
+                                <HandshakeIcon width={40} height={40} fill="#0761b7" />
                             </View>
                             <View style={styles.textColumn}>
                                 <Text style={styles.paragraph}>
@@ -257,7 +257,7 @@ export default function SharedTopBar() {
                         {/* Paragraph 3 */}
                         <View style={[styles.row, isSmallScreen && styles.rowMobile]}>
                             <View style={styles.column}>
-                                {/* Icon comes here later */}
+                                <HandsHoldingIcon width={40} height={40} fill="#0761b7" />
                             </View>
                             <View style={styles.textColumn}>
                                 <Text style={styles.paragraph}>
@@ -268,6 +268,7 @@ export default function SharedTopBar() {
                         </View>
                     </>
                 }
+
             </ScrollView>
         </View>
     );
@@ -350,4 +351,10 @@ const styles = StyleSheet.create({
         marginTop: 16,
         marginBottom: 16,
     },
+    respectHighlight: {
+        fontSize: 18,
+        color: '#0761b7',
+        fontWeight: 'bold',
+    },
+
 });
