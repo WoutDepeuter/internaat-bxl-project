@@ -24,8 +24,7 @@ import IconsSolid from '@/assets/svgs/donbosco-waarden/icons-solid.svg';
 import HandshakeIcon from '@/assets/svgs/donbosco-waarden/handshake-regular.svg';
 import HandsHoldingIcon from '@/assets/svgs/donbosco-waarden/hands-holding-svgrepo-com.svg';
 
-
-
+import OpsommingOpvoedenOnzeWaarden from '@/components/OpsommingOpvoedenOnzeWaarden';
 
 const tabs = [
     "Wie was Don Bosco?",
@@ -217,7 +216,9 @@ export default function SharedTopBar() {
                         {/* OpsommingOpvoeden placeholder */}
                         <View style={{ marginVertical: 16 }}>
                             <Text style={[styles.subtitle, { textAlign: 'center' }]}>
-                                [OpsommingOpvoeden component komt hier]
+                                <View style={{ marginVertical: 16 }}>
+                                    <OpsommingOpvoedenOnzeWaarden />
+                                </View>
                             </Text>
                         </View>
 
