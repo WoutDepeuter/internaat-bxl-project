@@ -4,14 +4,14 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import LiggingInternaat from '@/components/LiggingInternaat';
-
 import ContactInfo from '@/components/ContactInfo';
-import Bereikbaarheid from "@/components/Bereikbaarheid"; // your styled contact section
+import Bereikbaarheid from '@/components/Bereikbaarheid';
 
 export default function ContactScreen() {
     return (
         <ParallaxScrollView
-            headerBackgroundColor={{ light: '#FFFFFF', dark: '#FFFFFF' }} // Adjust dark mode if needed
+            style={styles.container} // Ensures outermost background
+            headerBackgroundColor={{ light: '#FFFFFF', dark: '#FFFFFF' }}
             headerImage={
                 <IconSymbol
                     size={310}
@@ -20,20 +20,33 @@ export default function ContactScreen() {
                     style={styles.headerImage}
                 />
             }
-            contentContainerStyle={styles.scrollContent} // Add this line
+            contentContainerStyle={styles.scrollContent}
         >
             <ThemedView style={styles.titleContainer}>
                 <ThemedText type="title">Contacteer ons</ThemedText>
             </ThemedView>
 
-            <ContactInfo />
-            <LiggingInternaat />
-            <Bereikbaarheid />
+            {/* Ensure all child components inherit background correctly */}
+            <ThemedView style={styles.section}>
+                <ContactInfo />
+            </ThemedView>
+
+            <ThemedView style={styles.section}>
+                <LiggingInternaat />
+            </ThemedView>
+
+            <ThemedView style={styles.section}>
+                <Bereikbaarheid />
+            </ThemedView>
         </ParallaxScrollView>
     );
 }
 
 const styles = StyleSheet.create({
+    container: {
+        backgroundColor: '#FFFFFF',
+        flex: 1,
+    },
     headerImage: {
         color: '#808080',
         bottom: -90,
@@ -44,14 +57,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         gap: 8,
         marginBottom: 16,
+        backgroundColor: '#FFFFFF',
     },
     scrollContent: {
         backgroundColor: '#FFFFFF',
         flexGrow: 1,
         paddingHorizontal: 16,
         paddingTop: 16,
-        paddingBottom: 16, // Apply padding bottom here
+        paddingBottom: 16,
+    },
+    section: {
+        backgroundColor: '#FFFFFF',
+        marginBottom: 16,
     },
 });
-
-
