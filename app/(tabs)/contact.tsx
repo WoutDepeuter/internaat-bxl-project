@@ -11,7 +11,7 @@ import Bereikbaarheid from "@/components/Bereikbaarheid"; // your styled contact
 export default function ContactScreen() {
     return (
         <ParallaxScrollView
-            headerBackgroundColor={{ light: '#FFFFFF', dark: '#1A1A1A' }} // Adjust dark mode if needed
+            headerBackgroundColor={{ light: '#FFFFFF', dark: '#FFFFFF' }} // Adjust dark mode if needed
             headerImage={
                 <IconSymbol
                     size={310}
@@ -46,10 +46,12 @@ const styles = StyleSheet.create({
         marginBottom: 16,
     },
     scrollContent: {
-        backgroundColor: '#FFFFFF', // Set background to white
+        backgroundColor: '#FFFFFF',
         flexGrow: 1,
         paddingHorizontal: 16,
         paddingTop: 16,
+        paddingBottom: 16, // Apply padding bottom here
     },
 });
+
 
