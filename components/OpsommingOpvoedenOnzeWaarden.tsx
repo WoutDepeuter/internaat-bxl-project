@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, ImageSourcePropType } from 'react-native';
 import { useWindowDimensions } from 'react-native';
 
 const firstImage = require('../assets/images/donbosco-waarden/DonBoscoRustRegelmaat.jpeg');
@@ -32,18 +32,22 @@ const thirdBulletPoints = [
 ];
 
 const fourthBulletPoints = [
-  'Bruisend en levendig',
-  'Humoristisch en speels',
-  'Gelukkig',
-  'Gemotiveerd en geëngageerd',
-  'Betrokken: je mening en inzet is belangrijk',
+    'Bruisend en levendig',
+    'Humoristisch en speels',
+    'Gelukkig',
+    'Gemotiveerd en geëngageerd',
+    'Betrokken: je mening en inzet is belangrijk',
 ];
 
 export default function OpsommingOpvoedenOnzeWaarden() {
     const { width } = useWindowDimensions();
     const imageWidth = Math.min(width * 0.9, 320);
 
-    const renderBlock = (image: any, bulletPoints: string[]) => (
+    const renderBlock = (
+        image: ImageSourcePropType,
+        bulletPoints: string[],
+        backgroundColor: string
+    ) => (
         <View style={{ alignItems: 'center', marginBottom: 24 }}>
             {/* Image */}
             <Image
@@ -55,8 +59,8 @@ export default function OpsommingOpvoedenOnzeWaarden() {
                 resizeMode="cover"
             />
 
-            {/* Blue background with bullets */}
-            <View style={[styles.bulletWrapper, { width: imageWidth }]}>
+            {/* Bullet block */}
+            <View style={[styles.bulletWrapper, { width: imageWidth, backgroundColor }]}>
                 {bulletPoints.map((point, index) => (
                     <View key={index} style={styles.bulletRow}>
                         <View style={styles.bulletCube} />
@@ -69,10 +73,10 @@ export default function OpsommingOpvoedenOnzeWaarden() {
 
     return (
         <View>
-            {renderBlock(firstImage, firstBulletPoints)}
-            {renderBlock(secondImage, secondBulletPoints)}
-            {renderBlock(thirdImage, thirdBulletPoints)}
-            {renderBlock(fourthImage, fourthBulletPoints)}
+            {renderBlock(firstImage, firstBulletPoints, '#0761b7')}
+            {renderBlock(secondImage, secondBulletPoints, '#248ef2')}
+            {renderBlock(thirdImage, thirdBulletPoints, '#0761b7')}
+            {renderBlock(fourthImage, fourthBulletPoints, '#248ef2')}
         </View>
     );
 }
