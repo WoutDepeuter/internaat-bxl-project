@@ -1,69 +1,72 @@
-import { StyleSheet } from 'react-native';
+import {
+    StyleSheet,
+    View,
+    SafeAreaView,
+    ScrollView,
+    ImageBackground,
+    Text,
+} from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
+import SharedTopBar from '@/components/SharedTopBarOpvoeden';
 
 export default function OpvoedenScreen() {
+    const insets = useSafeAreaInsets();
+
     return (
-        <ParallaxScrollView
-            headerBackgroundColor={{ light: '#E0E0E0', dark: '#2C2C2C' }}
-            headerImage={
-                <IconSymbol
-                    size={310}
-                    color="#808080"
-                    name="person.2.fill"
-                    style={styles.headerImage}
-                />
-            }>
-            <ThemedView style={styles.titleContainer}>
-                <ThemedText type="title">Opvoeden met Don Bosco</ThemedText>
-            </ThemedView>
+        <SafeAreaView style={[styles.safeArea, { paddingBottom: insets.bottom }]}>
+            <ScrollView contentContainerStyle={styles.container}>
+                <View style={styles.bannerWrapper}>
+                    <ImageBackground
+                        source={require('@/assets/images/shared/banner.png')}
+                        style={styles.bannerImage}
+                        resizeMode="cover"
+                    >
+                        <View style={styles.overlay} />
+                        <View style={styles.bannerContent}>
+                            <Text style={styles.bannerTitle}>Opvoeden met Don Bosco</Text>
+                        </View>
+                    </ImageBackground>
+                </View>
 
-            <ThemedView style={styles.contentContainer}>
-                <ThemedText type="subtitle">Onze Opvoedingsvisie</ThemedText>
-                <ThemedText>
-                    Don Bosco staat voor een holistische opvoedingsbenadering die zich richt op de volledige
-                    ontwikkeling van jonge mensen. Onze methodiek is gebaseerd op preventie, liefde en
-                    redelijkheid, met als doel elk kind te helpen groeien tot een verantwoordelijke,
-                    gelukkige volwassene.
-                </ThemedText>
-
-                <ThemedText type="subtitle">Kernwaarden</ThemedText>
-                <ThemedText>
-                    • Persoonlijke begeleiding
-                    • Respect voor individualiteit
-                    • Positieve ondersteuning
-                    • Geloof in de mogelijkheden van elke jongere
-                </ThemedText>
-
-                <ThemedText type="subtitle">Onze Aanpak</ThemedText>
-                <ThemedText>
-                    Wij geloven in een opvoedingsaanpak die:
-                    - Jongeren centraal stelt
-                    - Talenten ontwikkelt
-                    - Sociale vaardigheden stimuleert
-                    - Een veilige en ondersteunende omgeving biedt
-                </ThemedText>
-            </ThemedView>
-        </ParallaxScrollView>
+                <SharedTopBar />
+            </ScrollView>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
-    headerImage: {
-        color: '#808080',
-        bottom: -90,
-        left: -35,
-        position: 'absolute',
+    safeArea: {
+        flex: 1,
+        backgroundColor: '#FFF',
     },
-    titleContainer: {
-        flexDirection: 'row',
-        gap: 8,
-        marginBottom: 16,
+    container: {
+        backgroundColor: '#FFF',
+        paddingBottom: 32,
     },
-    contentContainer: {
-        gap: 16,
+    bannerWrapper: {
+        width: '100%',
+        aspectRatio: 3.5,
+        marginBottom: 0,
+    },
+
+    bannerImage: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    overlay: {
+        ...StyleSheet.absoluteFillObject,
+        backgroundColor: 'rgba(7, 98, 183, 0.7)',
+    },
+    bannerContent: {
+        zIndex: 1,
+        paddingHorizontal: 16,
+    },
+    bannerTitle: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: '#FFF',
+        textAlign: 'center',
     },
 });
