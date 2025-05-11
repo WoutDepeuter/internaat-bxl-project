@@ -115,7 +115,15 @@ export default function SharedTopBar() {
             {/* Content */}
             <ScrollView style={styles.contentContainer}>
                 <View style={styles.titleWrapper}>
-                    <Text style={styles.title}>{activeTab}</Text>
+                    <Text style={styles.title}>
+                        {activeTab === 'Ons opvoedingsproject'
+                            ? 'Wat is ons opvoedingsproject?'
+                            : activeTab === 'Onze waarden'
+                                ? 'Welke waarden vinden we belangrijk binnen de opvoeding bij Don Bosco?'
+                                : activeTab === 'Partners'
+                                    ? 'Wie zijn onze partners in opvoeding?'
+                                    : activeTab}
+                    </Text>
                     <View style={styles.underline} />
                 </View>
 
