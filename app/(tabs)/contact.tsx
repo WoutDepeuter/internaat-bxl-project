@@ -6,6 +6,7 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import LiggingInternaat from '@/components/LiggingInternaat';
 import ContactInfo from '@/components/ContactInfo';
 import Bereikbaarheid from '@/components/Bereikbaarheid';
+import ContacteerOns from '@/components/ContacteerOns';
 
 export default function ContactScreen() {
     return (
@@ -38,6 +39,10 @@ export default function ContactScreen() {
             <ThemedView style={styles.section}>
                 <Bereikbaarheid />
             </ThemedView>
+            <ThemedView style={styles.section}>
+                <ContacteerOns />
+            </ThemedView>
+
         </ParallaxScrollView>
     );
 }
