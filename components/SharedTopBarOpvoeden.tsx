@@ -14,6 +14,11 @@ import ChurchIcon from '@/assets/svgs/donbosco-wie/church-solid.svg';
 import HandsIcon from '@/assets/svgs/donbosco-wie/hands-holding-child-solid.svg';
 import PeopleIcon from '@/assets/svgs/donbosco-wie/people-group-solid.svg';
 
+import HomeHeartIcon from '@/assets/svgs/donbosco-opvoedingsproject/home-heart-svgrepo-com.svg';
+import SchoolIcon from '@/assets/svgs/donbosco-opvoedingsproject/home-heart-svgrepo-com.svg'; // same icon as above
+import VolleyballIcon from '@/assets/svgs/donbosco-opvoedingsproject/volleyball-solid.svg';
+import HandsHeartIcon from '@/assets/svgs/donbosco-opvoedingsproject/hands-holding-heart-svgrepo-com.svg';
+
 
 const tabs = [
     "Wie was Don Bosco?",
@@ -28,6 +33,14 @@ const iconComponents = [
     HandsIcon,
     PeopleIcon,
 ];
+
+const opvoedingsprojectIcons = [
+    HomeHeartIcon,
+    SchoolIcon,
+    VolleyballIcon,
+    HandsHeartIcon,
+];
+
 
 const content = {
     "Wie was Don Bosco?": [
@@ -147,14 +160,21 @@ export default function SharedTopBar() {
                             Op het oratorium stoelt het opvoedingsproject met name op volgende vier elementen :{"\n\n"}
                         </Text>
 
-                        {content[activeTab].map((section, index) => (
-                            <View key={index} style={[styles.row, isSmallScreen && styles.rowMobile]}>
-                                <View style={styles.textColumn}>
-                                    <Text style={styles.subtitle}>{section.title}</Text>
-                                    <Text style={styles.paragraph}>{section.text}</Text>
+                        {content[activeTab].map((section, index) => {
+                            const Icon = opvoedingsprojectIcons[index];
+                            return (
+                                <View key={index} style={[styles.row, isSmallScreen && styles.rowMobile]}>
+                                    <View style={styles.column}>
+                                        {Icon && <Icon width={40} height={40} fill="#0761b7" />}
+                                    </View>
+
+                                    <View style={styles.textColumn}>
+                                        <Text style={styles.subtitle}>{section.title}</Text>
+                                        <Text style={styles.paragraph}>{section.text}</Text>
+                                    </View>
                                 </View>
-                            </View>
-                        ))}
+                            );
+                        })}
                     </>
                 }
 
