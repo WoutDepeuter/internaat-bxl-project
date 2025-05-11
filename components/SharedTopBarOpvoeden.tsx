@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  Image,
-  ScrollView,
-  useWindowDimensions,
+    View,
+    Text,
+    TouchableOpacity,
+    StyleSheet,
+    Image,
+    ScrollView,
+    useWindowDimensions,
 } from 'react-native';
 
 import ChildIcon from '@/assets/svgs/donbosco-wie/child-reaching-solid.svg';
@@ -52,6 +52,24 @@ const content = {
             title: 'Opvolging',
             text: `Daaruit ontstaat de congregatie van de salesianen en later de zusters van Don Bosco, vandaag wereldwijd aanwezig met tal van projecten voor en met jongeren.\n\nDon Bosco sterft op 31 januari 1888.\n\nIn 1891 komen de eerste salesianen naar België.\nOver de hele wereld wordt zijn pedagogische visie vertaald naar de praktijk van vandaag`,
             icon: require('../assets/svgs/donbosco-wie/people-group-solid.svg'),
+        },
+    ],
+    "Ons opvoedingsproject": [
+        {
+            title: 'Het internaat als thuis',
+            text: `Een thuis bieden betekent jongeren een nestwarmte aanreiken, een respectvolle omgeving waar ze ervaren dat ze erbij horen, een plaats waar ze tot rust kunnen komen, zichzelf kunnen en mogen zijn. Hier mogen ze fouten maken en worden ze toch nog graag gezien.`,
+        },
+        {
+            title: 'Het internaat als leerplek/school',
+            text: `Naast een thuis is het internaat uiteraard ook een leerplaats. Een school aanbieden is de mogelijkheid geven om vaardigheden en kennis aan te leren, een plaats waar jongeren leren verantwoordelijkheid dragen ten aanzien van mekaar.`,
+        },
+        {
+            title: 'Het internaat als speelplaats',
+            text: `De ruimte om te spelen, een speelplaats is een onmisbare leerschool in het internaat: de gelegenheid om relaties aan te gaan, mensen nabij te zijn, in een ontspannen sfeer, met de mogelijkheid om hobby's en interesses te ontdekken en vorm te geven.`,
+        },
+        {
+            title: 'Het internaat als zin-plek',
+            text: `Het internaat wil voor jongeren ook een zin-plek of parochie zijn, een gemeenschap waarin jonge mensen op zoek kunnen gaan naar de grond van hun bestaan, naar zingeving. Het is een plek waar ze hun geloof mogen leren kennen, vieren en beleven.`,
         },
     ],
 };
@@ -121,6 +139,25 @@ export default function SharedTopBar() {
                             </View>
                         );
                     })}
+                {activeTab === 'Ons opvoedingsproject' &&
+                    <>
+                        <Text style={styles.paragraph}>
+                            In de 19e eeuw richtte Don Bosco het oratorium op voor de jongeren.{"\n\n"}
+                            Een eenvoudige plaats in de stad waar jongeren kunnen thuis komen, elkaar ontmoeten, leren lezen en schrijven, een vakopleiding krijgen, samen spelen en ravotten, eten en bidden.{"\n\n"}
+                            Op het oratorium stoelt het opvoedingsproject met name op volgende vier elementen :{"\n\n"}
+                        </Text>
+
+                        {content[activeTab].map((section, index) => (
+                            <View key={index} style={[styles.row, isSmallScreen && styles.rowMobile]}>
+                                <View style={styles.textColumn}>
+                                    <Text style={styles.subtitle}>{section.title}</Text>
+                                    <Text style={styles.paragraph}>{section.text}</Text>
+                                </View>
+                            </View>
+                        ))}
+                    </>
+                }
+
             </ScrollView>
         </View>
     );
