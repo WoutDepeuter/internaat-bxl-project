@@ -18,6 +18,8 @@ import HomeHeartIcon from '@/assets/svgs/donbosco-opvoedingsproject/home-heart-s
 import SchoolIcon from '@/assets/svgs/donbosco-opvoedingsproject/home-heart-svgrepo-com.svg'; // same icon as above
 import VolleyballIcon from '@/assets/svgs/donbosco-opvoedingsproject/volleyball-solid.svg';
 import HandsHeartIcon from '@/assets/svgs/donbosco-opvoedingsproject/hands-holding-heart-svgrepo-com.svg';
+const DonBoscoOpvoedingsprojectImage = require('../assets/images/donbosco-opvoedingsproject/DonBoscoOpvoedingsproject.jpeg');
+
 
 
 const tabs = [
@@ -159,6 +161,17 @@ export default function SharedTopBar() {
                             Een eenvoudige plaats in de stad waar jongeren kunnen thuis komen, elkaar ontmoeten, leren lezen en schrijven, een vakopleiding krijgen, samen spelen en ravotten, eten en bidden.{"\n\n"}
                             Op het oratorium stoelt het opvoedingsproject met name op volgende vier elementen :{"\n\n"}
                         </Text>
+
+                        <View style={{ alignItems: 'center', marginVertical: 16 }}>
+                            <Image
+                                source={DonBoscoOpvoedingsprojectImage}
+                                style={{
+                                    width: isSmallScreen ? 200 : 320,
+                                    height: isSmallScreen ? 200 : 240,
+                                }}
+                                resizeMode="cover"
+                            />
+                        </View>
 
                         {content[activeTab].map((section, index) => {
                             const Icon = opvoedingsprojectIcons[index];
