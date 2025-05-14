@@ -4,6 +4,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
+import OnzeRegels from "@/components/OnzeRegels";
 
 export default function InschrijvenScreen() {
     const handleInschrijfformulierPress = () => {
@@ -25,44 +26,16 @@ export default function InschrijvenScreen() {
                     style={styles.headerImage}
                 />
             }>
-            <ThemedView style={styles.titleContainer}>
-                <ThemedText type="title">Inschrijven op Internaat</ThemedText>
-            </ThemedView>
 
-            <ThemedView style={styles.contentContainer}>
-                <ThemedText type="subtitle">Inschrijvingsprocedure</ThemedText>
-                <ThemedText>
-                    Wil je je inschrijven voor ons internaat? Volg onderstaande stappen:
-                </ThemedText>
+            <OnzeRegels />
 
-                <ThemedView style={styles.stepContainer}>
-                    <ThemedText type="defaultSemiBold">Stap 1: Informatie verzamelen</ThemedText>
-                    <ThemedText>
-                        Bekijk onze website en brochures voor gedetailleerde informatie over ons internaat.
-                    </ThemedText>
-                </ThemedView>
 
-                <ThemedView style={styles.stepContainer}>
-                    <ThemedText type="defaultSemiBold">Stap 2: Inschrijfformulier</ThemedText>
-                    <TouchableOpacity onPress={handleInschrijfformulierPress} style={styles.buttonContainer}>
-                        <IconSymbol name="doc.text.fill" size={24} color="#007AFF" />
-                        <ThemedText type="link">Online Inschrijfformulier</ThemedText>
-                    </TouchableOpacity>
-                </ThemedView>
 
-                <ThemedView style={styles.stepContainer}>
-                    <ThemedText type="defaultSemiBold">Stap 3: Open Dag</ThemedText>
-                    <TouchableOpacity onPress={handleOpenDagPress} style={styles.buttonContainer}>
-                        <IconSymbol name="calendar.badge.plus" size={24} color="#007AFF" />
-                        <ThemedText type="link">Kom naar onze Open Dag</ThemedText>
-                    </TouchableOpacity>
-                </ThemedView>
 
-                <ThemedText type="subtitle">Vragen?</ThemedText>
-                <ThemedText>
-                    Aarzel niet om contact met ons op te nemen voor meer informatie of persoonlijk advies.
-                </ThemedText>
-            </ThemedView>
+
+
+
+
         </ParallaxScrollView>
     );
 }
