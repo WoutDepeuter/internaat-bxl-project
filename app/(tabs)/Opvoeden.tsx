@@ -12,6 +12,7 @@ import { useRef, useState } from 'react';
 
 import SharedTopBar from '@/components/SharedTopBarOpvoeden';
 import BottomShared from '@/components/BottomShared';
+import LogosPartners from '@/components/LogosPartners';
 
 export default function OpvoedenScreen() {
     const insets = useSafeAreaInsets();
@@ -55,6 +56,8 @@ export default function OpvoedenScreen() {
 
                 <SharedTopBar />
 
+                <LogosPartners />
+                
                 <View ref={bottomRef}>
                     <BottomShared visible={isBottomVisible} />
                 </View>
