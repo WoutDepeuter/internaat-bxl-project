@@ -270,6 +270,54 @@ export default function SharedTopBar() {
                     </>
                 }
 
+                {activeTab === 'Partners' && (
+                    <View>
+                        <Text style={styles.paragraphPartners}>
+                            We werken <Text style={styles.boldText}>Thuis-ondersteunend: </Text> opvoeden doen we <Text style={styles.boldText}>samen mét</Text> de ouders, door het onderhouden van intense contacten.
+                        </Text>
+
+                        <Text style={styles.paragraphPartners}>
+                            <Text style={styles.boldText}>Via de jeugdwerking 'KAJ'</Text> hebben de jongeren inspraak in de werking. Ze worden nauw betrokken. Uit de jeugdwerking groeide een <Text style={styles.boldText}>oud-leerlingen- en vrijwilligerswerking.</Text> Samen met de ouders groeide dit uit tot een <Text style={styles.boldText}>eigen VZW</Text>: KAJ Don Bosco vzw. <Text style={styles.paragraph}>Getuigenis KAJ bekijken</Text>
+                        </Text>
+
+                        <View style={{ marginLeft: 20 }}>
+                            <Text style={[styles.paragraph, { marginBottom: 10 }]}>
+                                <Text style={styles.boldText}>Vrijwilligers en buddy’s</Text> geven ons de nodige ondersteuning: het geven van bijles, organiseren van activiteiten, helpen bij de algemene omkadering...
+                            </Text>
+
+                            <Text style={styles.paragraph}>
+                                Hun Allegriafonds helpt kansarme jongeren bij het dragen van schoolonkosten. Zo krijgen alle jongeren op internaat gelijke kansen. Samen met de stichting Pelicano proberen we de kinderarmoede in België in te perken.
+                            </Text>
+                        </View>
+
+                        <Text style={styles.paragraphPartners}>
+                            We onderhouden een nauwe samenwerking met scholen uit het Nederlandstalig lager en secundair onderwijs in Brussel en omgeving. Hierdoor beschikken we over een groot aanbod aan studierichtingen op maat van elke jongere.
+                        </Text>
+
+                        <Text style={styles.paragraphPartners}>
+                            In de voorbije jaren ging het internaat de samenwerking aan met Jeugdhulp Don Bosco Vlaanderen. Het outreachend aanbod <Text style={styles.italicBoldText}>WelWijzer! / P.L.E.K.</Text> situeert zich op drie niveaus:
+                        </Text>
+
+                        <View style={{ marginLeft: 20 }}>
+                            <Text style={styles.paragraph}>Het internaat ondersteunen bij de opmaak van een kwaliteitszorgkader</Text>
+                            <Text style={styles.paragraph}>De opvoeders versterken in hun pedagogische vaardigheden</Text>
+                            <Text style={styles.paragraph}>Het begeleiden van internen en hun context</Text>
+                        </View>
+
+                        <TouchableOpacity>
+                            <Text style={[styles.paragraphPartners, { marginTop: 10 }]}>Getuigenis P.L.E.K. bekijken</Text>
+                        </TouchableOpacity>
+
+                        <Text style={styles.paragraphPartners}>
+                            Er is een goede relatie met heel wat <Text style={styles.boldText}>ondersteuningsdiensten binnen onderwijs en</Text> Jongerenwelzijn zoals CLB-centra, centra algemeen welzijnswerk, jongeren advies centra, centra voor geestelijke gezondheidszorg, psychologen, logopedisten, pleegzorg, consulenten...
+                        </Text>
+
+                        <Text style={styles.paragraphPartners}>
+                            Het internaat en de KAJ zijn ook partner van de brede school Sint-Pieters-Woluwe. Zo hebben we een goed contact met vele organisaties uit de buurt: gemeenschapscentra Kontakt en OpWeule, jeugdhuis De Schakel, sportclubs, de bibliotheek, de muziekschool, onderwijsverstrekkers, gemeentediensten ... It takes a village to raise a child!
+                        </Text>
+                    </View>
+                )}
+
             </ScrollView>
         </View>
     );
@@ -345,8 +393,14 @@ const styles = StyleSheet.create({
     },
     paragraph: {
         fontSize: 14,
-        lineHeight: 20,
+        lineHeight: 20, // need this? check later
         color: '#333',
+    },
+    paragraphPartners: {
+        fontSize: 14,
+        color: '#333',
+        marginTop: 4,
+        marginBottom: 4,
     },
     image: {
         marginTop: 16,
@@ -357,5 +411,12 @@ const styles = StyleSheet.create({
         color: '#0761b7',
         fontWeight: 'bold',
     },
+    boldText: {
+        fontWeight: 'bold',
+    },
 
+    italicBoldText: {
+        fontWeight: 'bold',
+        fontStyle: 'italic',
+    },
 });
