@@ -5,6 +5,7 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import OnzeRegels from "@/components/OnzeRegels";
+import InfoButtons from "@/components/ui/InschrijvenButtons";
 
 export default function InschrijvenScreen() {
     const handleInschrijfformulierPress = () => {
@@ -28,6 +29,7 @@ export default function InschrijvenScreen() {
             }>
 
             <OnzeRegels />
+            <InfoButtons/>
 
 
 
