@@ -294,7 +294,13 @@ export default function SharedTopBar() {
                             </View>
                             <View style={{ flex: 1 }}>
                                 <Text style={styles.paragraphPartners}>
-                                    <Text style={styles.boldText}>Via de jeugdwerking 'KAJ'</Text> hebben de jongeren inspraak in de werking. Ze worden nauw betrokken. Uit de jeugdwerking groeide een <Text style={styles.boldText}>oud-leerlingen- en vrijwilligerswerking.</Text> Samen met de ouders groeide dit uit tot een <Text style={styles.boldText}>eigen VZW</Text>: KAJ Don Bosco vzw.
+                                    <Text style={styles.boldText}>Via de jeugdwerking 'KAJ'</Text> hebben de jongeren inspraak in de werking. Ze worden nauw betrokken. Uit de jeugdwerking groeide een <Text style={styles.boldText}>oud-leerlingen- en vrijwilligerswerking.</Text> Samen met de ouders groeide dit uit tot een <Text style={styles.boldText}>eigen VZW</Text>:&nbsp;
+                                    <Text
+                                        style={styles.linkLightBluePartners}
+                                        onPress={() => Linking.openURL('https://www.kajdonbosco.be/')}
+                                    >
+                                        KAJ Don Bosco vzw
+                                    </Text>.
                                 </Text>
                                 <TouchableOpacity
                                     onPress={() => Linking.openURL('https://www.youtube.com/watch?v=HMLm3WN3RAM')}
@@ -312,7 +318,14 @@ export default function SharedTopBar() {
                                     </Text>
 
                                     <Text style={styles.paragraph}>
-                                        Hun Allegriafonds helpt kansarme jongeren bij het dragen van schoolonkosten. Zo krijgen alle jongeren op internaat gelijke kansen. Samen met de stichting Pelicano proberen we de kinderarmoede in België in te perken.
+                                        Hun Allegriafonds helpt kansarme jongeren bij het dragen van schoolonkosten. Zo krijgen alle jongeren op internaat gelijke kansen. Samen met&nbsp;
+                                        <Text
+                                            style={styles.linkLightBluePartners}
+                                            onPress={() => Linking.openURL('https://pelicano.be/')}
+                                        >
+                                            de stichting Pelicano
+                                        </Text>{" "}
+                                        proberen we de kinderarmoede in België in te perken.
                                     </Text>
                                 </View>
                             </View>
@@ -324,7 +337,14 @@ export default function SharedTopBar() {
                             </View>
                             <View style={{ flex: 1 }}>
                                 <Text style={styles.paragraphPartners}>
-                                    We onderhouden een nauwe samenwerking met scholen uit het Nederlandstalig lager en secundair onderwijs in Brussel en omgeving. Hierdoor beschikken we over een groot aanbod aan studierichtingen op maat van elke jongere.
+                                    We onderhouden een nauwe samenwerking met scholen uit het Nederlandstalig lager en secundair{" "}
+                                    <Text
+                                        style={styles.linkLightBluePartners}
+                                        onPress={() => Linking.openURL('https://www.onderwijsinbrussel.be/')}
+                                    >
+                                        onderwijs in Brussel
+                                    </Text>{" "}
+                                    en omgeving. Hierdoor beschikken we over een groot aanbod aan studierichtingen op maat van elke jongere.
                                 </Text>
                             </View>
                         </View>
@@ -335,7 +355,13 @@ export default function SharedTopBar() {
                             </View>
                             <View style={{ flex: 1 }}>
                                 <Text style={styles.paragraphPartners}>
-                                    In de voorbije jaren ging het internaat de samenwerking aan met Jeugdhulp Don Bosco Vlaanderen. Het outreachend aanbod <Text style={styles.italicBoldText}>WelWijzer! / P.L.E.K.</Text> situeert zich op drie niveaus:
+                                    In de voorbije jaren ging het internaat de samenwerking aan met{" "}
+                                    <Text
+                                        style={styles.linkLightBluePartners}
+                                        onPress={() => Linking.openURL('https://www.jeugdhulpdonbosco.be/vlaams-brabant')}
+                                    >
+                                        Jeugdhulp Don Bosco Vlaanderen
+                                    </Text>. Het outreachend aanbod <Text style={styles.italicBoldText}>WelWijzer! / P.L.E.K.</Text> situeert zich op drie niveaus:
                                 </Text>
 
                                 <View style={{ marginTop: 8, marginLeft: 12 }}>
@@ -362,7 +388,14 @@ export default function SharedTopBar() {
                             </View>
                             <View style={{ flex: 1 }}>
                                 <Text style={styles.paragraphPartners}>
-                                    Er is een goede relatie met heel wat <Text style={styles.boldText}>ondersteuningsdiensten binnen onderwijs en</Text> Jongerenwelzijn zoals CLB-centra, centra algemeen welzijnswerk, jongeren advies centra, centra voor geestelijke gezondheidszorg, psychologen, logopedisten, pleegzorg, consulenten...
+                                    Er is een goede relatie met heel wat <Text style={styles.boldText}>ondersteuningsdiensten binnen onderwijs en</Text>{" "}
+                                    <Text
+                                        style={styles.linkLightBluePartners}
+                                        onPress={() => Linking.openURL('https://www.jeugdhulp.be/')}
+                                    >
+                                        Jongerenwelzijn
+                                    </Text>{" "}
+                                    zoals CLB-centra, centra algemeen welzijnswerk, jongeren advies centra, centra voor geestelijke gezondheidszorg, psychologen, logopedisten, pleegzorg, consulenten...
                                 </Text>
                             </View>
                         </View>
@@ -476,7 +509,6 @@ const styles = StyleSheet.create({
     boldText: {
         fontWeight: 'bold',
     },
-
     italicBoldText: {
         fontWeight: 'bold',
         fontStyle: 'italic',
@@ -486,7 +518,11 @@ const styles = StyleSheet.create({
         marginBottom: 4,
         fontWeight: 'bold',
     },
-
+    linkLightBluePartners: {
+        color: '#248ef2',
+        marginBottom: 4,
+        fontWeight: 'bold',
+    },
     blueTextPartners: {
         color: '#248ef3',
     },
