@@ -7,6 +7,7 @@ import {
     Image,
     ScrollView,
     useWindowDimensions,
+    Linking,
 } from 'react-native';
 
 import ChildIcon from '@/assets/svgs/donbosco-wie/child-reaching-solid.svg';
@@ -27,6 +28,8 @@ import HandsHoldingIcon from '@/assets/svgs/donbosco-waarden/hands-holding-svgre
 import OpsommingOpvoedenOnzeWaarden from '@/components/OpsommingOpvoedenOnzeWaarden';
 
 import HandshakePartnersIcon from '@/assets/svgs/donbosco-partners/handshake-svgrepo-com.svg';
+
+import PlayButtonIcon from '@/assets/svgs/donbosco-partners/play-button-svgrepo-com.svg';
 
 const tabs = [
     "Wie was Don Bosco?",
@@ -293,8 +296,14 @@ export default function SharedTopBar() {
                                 <Text style={styles.paragraphPartners}>
                                     <Text style={styles.boldText}>Via de jeugdwerking 'KAJ'</Text> hebben de jongeren inspraak in de werking. Ze worden nauw betrokken. Uit de jeugdwerking groeide een <Text style={styles.boldText}>oud-leerlingen- en vrijwilligerswerking.</Text> Samen met de ouders groeide dit uit tot een <Text style={styles.boldText}>eigen VZW</Text>: KAJ Don Bosco vzw.
                                 </Text>
-                                <TouchableOpacity>
-                                    <Text style={[styles.paragraphPartners, { marginTop: 4 }]}>Getuigenis KAJ bekijken</Text>
+                                <TouchableOpacity
+                                    onPress={() => Linking.openURL('https://www.youtube.com/watch?v=HMLm3WN3RAM')}
+                                    style={[styles.row, { alignItems: 'center', marginTop: 4 }]}
+                                >
+                                    <PlayButtonIcon width={20} height={20} fill="#0761b7" style={{ marginRight: 6 }} />
+                                    <Text style={styles.linkPartners}>
+                                        Getuigenis KAJ bekijken
+                                    </Text>
                                 </TouchableOpacity>
 
                                 <View style={{ marginLeft: 20 }}>
@@ -335,8 +344,14 @@ export default function SharedTopBar() {
                                     <Text style={styles.paragraph}>Het begeleiden van internen en hun context</Text>
                                 </View>
 
-                                <TouchableOpacity>
-                                    <Text style={[styles.paragraphPartners, { marginTop: 10 }]}>Getuigenis P.L.E.K. bekijken</Text>
+                                <TouchableOpacity
+                                    onPress={() => Linking.openURL('https://www.youtube.com/watch?v=6jsl-yMipqM')}
+                                    style={[styles.row, { alignItems: 'center', marginTop: 10 }]}
+                                >
+                                    <PlayButtonIcon width={20} height={20} fill="#0761b7" style={{ marginRight: 6 }} />
+                                    <Text style={styles.linkPartners}>
+                                        Getuigenis P.L.E.K. bekijken
+                                    </Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
@@ -465,5 +480,14 @@ const styles = StyleSheet.create({
     italicBoldText: {
         fontWeight: 'bold',
         fontStyle: 'italic',
+    },
+    linkPartners: {
+        color: '#0761b7',
+        marginBottom: 4,
+        fontWeight: 'bold',
+    },
+
+    blueTextPartners: {
+        color: '#248ef3',
     },
 });
