@@ -7,7 +7,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import PageBanner from '@/components/PageBanner';
-import OnzeRegels from '@/components/OnzeRegels';
+import InfoText from '@/components/InfoText';
 import InfoButtons from '@/components/ui/InschrijvenButtons';
 
 export default function InschrijvenScreen() {
@@ -17,7 +17,7 @@ export default function InschrijvenScreen() {
         <SafeAreaView style={[styles.safeArea, { paddingBottom: insets.bottom }]}>
             <ScrollView contentContainerStyle={styles.container}>
                 <PageBanner title="Inschrijvingen" />
-                <OnzeRegels />
+                <InfoText />
                 <InfoButtons />
             </ScrollView>
         </SafeAreaView>
