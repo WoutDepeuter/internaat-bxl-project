@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 28,
         fontWeight: 'bold',
-        color: '#1D4ED8',
+        color: '#0761b7',
     },
     listWrapper: {
         flexDirection: 'row',
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     },
     line: {
         width: 2,
-        backgroundColor: '#1D4ED8',
+        backgroundColor: '#0761b7',
         height: '100%',
     },
     bulletList: {

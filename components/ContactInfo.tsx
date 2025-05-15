@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     blueBox: {
-        backgroundColor: '#005EB8',
+        backgroundColor: '#0761b7',
         width: 360,
         height: 360,
         justifyContent: 'center',
@@ -100,22 +100,22 @@ const styles = StyleSheet.create({
     heading: {
         fontSize: 26,
         fontWeight: 'bold',
-        color: '#1D4ED8',
+        color: '#0761b7',
     },
     line: {
         height: 3,
         width: 100,
-        backgroundColor: '#1D4ED8',
+        backgroundColor: '#0761b7',
         marginVertical: 6,
     },
     orgName: {
         fontWeight: 'bold',
         fontSize: 16,
-        color: '#1D4ED8',
+        color: '#0761b7',
         marginBottom: 4,
     },
     subtitle: {
-        color: '#1D4ED8',
+        color: '#0761b7',
         fontSize: 14,
         marginBottom: 12,
     },

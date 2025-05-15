@@ -42,7 +42,7 @@ export default function Bereikbaarheid() {
                 return (
                     <View key={index} style={styles.row}>
                         <View style={styles.icon}>
-                            <Icon width={32} height={32} fill="#1D4ED8" />
+                            <Icon width={32} height={32} fill="#0761b7" />
                         </View>
                         <View style={styles.textBlock}>
                             <Text style={styles.title}>{item.title}</Text>
@@ -62,7 +62,7 @@ export default function Bereikbaarheid() {
                 <body style="margin:0;padding:0">
                   <iframe width="100%" height="100%" frameborder="0" style="border:0"
                     src="https://www.openstreetmap.org/export/embed.html?bbox=4.4238%2C50.8380%2C4.4250%2C50.8388&layer=mapnik"
-                  </iframe>
+                  ></iframe>
                 </body>
               </html>
             `,
@@ -83,10 +83,10 @@ const styles = StyleSheet.create({
     heading: {
         fontSize: 28,
         fontWeight: 'bold',
-        color: '#1D4ED8',
+        color: '#0761b7',
         marginBottom: 24,
         borderBottomWidth: 4,
-        borderBottomColor: '#3B82F6',
+        borderBottomColor: '#0761b7',
         alignSelf: 'flex-start',
         paddingBottom: 4,
     },
