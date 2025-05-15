@@ -6,10 +6,14 @@ import {
     TouchableOpacity,
     Image,
     Linking,
+    useWindowDimensions,
 } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 export default function ContactInfo() {
+    const { width } = useWindowDimensions();
+    const isSmallScreen = width < 768;
+
     const handleEmailPress = () => {
         Linking.openURL('mailto:woluwe.internaat@donbosco.be');
     };
@@ -19,9 +23,8 @@ export default function ContactInfo() {
     };
 
     return (
-        <View style={styles.container}>
-            {/* LEFT: Image section */}
-            <View style={styles.imageContainer}>
+        <View style={[styles.container, isSmallScreen && styles.containerMobile]}>
+            <View style={[styles.imageContainer, isSmallScreen && styles.imageContainerMobile]}>
                 <View style={styles.blueBox}>
                     <Image
                         source={require('../assets/images/contact/contactpagina.jpeg')}
@@ -31,21 +34,19 @@ export default function ContactInfo() {
                 </View>
             </View>
 
-            {/* RIGHT: Text content */}
-            <View style={styles.infoContainer}>
+            <View style={[styles.infoContainer, isSmallScreen && styles.infoContainerMobile]}>
                 <Text style={styles.heading}>Contacteer ons</Text>
                 <View style={styles.line} />
 
                 <Text style={styles.orgName}>Don Bosco internaat Brussel</Text>
-                <Text style={styles.subtitle}>
-                    Nederlandstalig autonoom en vrij internaat{'\n'}
-                    voor jongeren vanaf 10 jaar
+                <Text style={[styles.subtitle, isSmallScreen && styles.centerText]}>
+                    Nederlandstalig autonoom en vrij internaat{'\n'}voor jongeren vanaf 10 jaar
                 </Text>
 
-                <Text style={styles.address}>
-                    Guldendallaan 90{'\n'}
-                    1150 Sint-Pieters-Woluwe
+                <Text style={[styles.address, isSmallScreen && styles.centerText]}>
+                    Guldendallaan 90{'\n'}1150 Sint-Pieters-Woluwe
                 </Text>
+
 
                 <View style={styles.row}>
                     <MaterialIcons name="phone" size={20} color="#000" />
@@ -73,11 +74,19 @@ const styles = StyleSheet.create({
         backgroundColor: '#F9FAFB',
         flexWrap: 'wrap',
     },
+    containerMobile: {
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
     imageContainer: {
         flex: 1,
         minWidth: 350,
         alignItems: 'flex-end',
         justifyContent: 'center',
+    },
+    imageContainerMobile: {
+        alignItems: 'center',
+        marginBottom: 24,
     },
     blueBox: {
         backgroundColor: '#0761b7',
@@ -96,6 +105,11 @@ const styles = StyleSheet.create({
         minWidth: 300,
         paddingLeft: 30,
         justifyContent: 'center',
+    },
+    infoContainerMobile: {
+        paddingLeft: 0,
+        alignItems: 'center',
+        textAlign: 'center',
     },
     heading: {
         fontSize: 26,
@@ -122,6 +136,9 @@ const styles = StyleSheet.create({
     address: {
         fontSize: 14,
         marginBottom: 12,
+    },
+    centerText: {
+        textAlign: 'center',
     },
     row: {
         flexDirection: 'row',
