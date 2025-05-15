@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Linking, Platform, Pressable } from 'react-native';
 import { WebView } from 'react-native-webview';
 
 import MetroIcon from '@/assets/svgs/contact/train-subway-solid.svg';
@@ -32,8 +32,19 @@ Via de E40/A3, afrit kraainem richting de Bevrijdingslaan. Sla rechtsaf naar de 
     },
 ];
 
-const MAP_EMBED_URL =
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2519.422916703338!2d4.437552915745145!3d50.850209879532955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3db0e99878b8b%3A0x6a6a12f4199143d3!2sGuldendallaan%2090%2C%201150%20Sint-Pieters-Woluwe!5e0!3m2!1sen!2sbe!4v1678654593809!5m2!1sen!2sbe';
+const MAP_EMBED_HTML = `
+  <!DOCTYPE html>
+  <html>
+    <head><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+    <body style="margin:0;padding:0">
+      <iframe width="100%" height="100%" frameborder="0" style="border:0"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=4.4238%2C50.8380%2C4.4250%2C50.8388&layer=mapnik"
+      ></iframe>
+    </body>
+  </html>
+`;
+
+const MAP_LINK = 'https://www.openstreetmap.org/?mlat=50.8383&mlon=4.4244#map=19/50.8383/4.4244';
 
 export default function Bereikbaarheid() {
     return (
@@ -56,11 +67,17 @@ export default function Bereikbaarheid() {
             })}
 
             <View style={styles.mapContainer}>
-                <WebView
-                    source={{ uri: MAP_EMBED_URL }}
-                    style={styles.map}
-                    scrollEnabled={false}
-                />
+                {Platform.OS === 'web' ? (
+                    <Pressable onPress={() => Linking.openURL(MAP_LINK)}>
+                        <Text style={styles.mapLink}>Bekijk kaart op OpenStreetMap</Text>
+                    </Pressable>
+                ) : (
+                    <WebView
+                        source={{ html: MAP_EMBED_HTML }}
+                        style={styles.map}
+                        scrollEnabled={false}
+                    />
+                )}
             </View>
         </View>
     );
@@ -108,9 +125,19 @@ const styles = StyleSheet.create({
         height: 300,
         borderRadius: 8,
         overflow: 'hidden',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     map: {
         flex: 1,
         borderRadius: 8,
+        width: '100%',
+        height: '100%',
+    },
+    mapLink: {
+        color: '#1D4ED8',
+        textDecorationLine: 'underline',
+        fontSize: 16,
+        fontWeight: 'bold',
     },
 });
