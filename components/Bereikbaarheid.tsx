@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Linking, Platform, Pressable } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { WebView } from 'react-native-webview';
 
 import MetroIcon from '@/assets/svgs/contact/train-subway-solid.svg';
@@ -32,20 +32,6 @@ Via de E40/A3, afrit kraainem richting de Bevrijdingslaan. Sla rechtsaf naar de 
     },
 ];
 
-const MAP_EMBED_HTML = `
-  <!DOCTYPE html>
-  <html>
-    <head><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
-    <body style="margin:0;padding:0">
-      <iframe width="100%" height="100%" frameborder="0" style="border:0"
-        src="https://www.openstreetmap.org/export/embed.html?bbox=4.4238%2C50.8380%2C4.4250%2C50.8388&layer=mapnik"
-      ></iframe>
-    </body>
-  </html>
-`;
-
-const MAP_LINK = 'https://www.openstreetmap.org/?mlat=50.8383&mlon=4.4244#map=19/50.8383/4.4244';
-
 export default function Bereikbaarheid() {
     return (
         <View style={styles.container}>
@@ -67,17 +53,23 @@ export default function Bereikbaarheid() {
             })}
 
             <View style={styles.mapContainer}>
-                {Platform.OS === 'web' ? (
-                    <Pressable onPress={() => Linking.openURL(MAP_LINK)}>
-                        <Text style={styles.mapLink}>Bekijk kaart op OpenStreetMap</Text>
-                    </Pressable>
-                ) : (
-                    <WebView
-                        source={{ html: MAP_EMBED_HTML }}
-                        style={styles.map}
-                        scrollEnabled={false}
-                    />
-                )}
+                <WebView
+                    source={{
+                        html: `
+              <!DOCTYPE html>
+              <html>
+                <head><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+                <body style="margin:0;padding:0">
+                  <iframe width="100%" height="100%" frameborder="0" style="border:0"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=4.4238%2C50.8380%2C4.4250%2C50.8388&layer=mapnik"
+                  </iframe>
+                </body>
+              </html>
+            `,
+                    }}
+                    style={styles.map}
+                    scrollEnabled={false}
+                />
             </View>
         </View>
     );
@@ -125,19 +117,9 @@ const styles = StyleSheet.create({
         height: 300,
         borderRadius: 8,
         overflow: 'hidden',
-        justifyContent: 'center',
-        alignItems: 'center',
     },
     map: {
         flex: 1,
         borderRadius: 8,
-        width: '100%',
-        height: '100%',
-    },
-    mapLink: {
-        color: '#1D4ED8',
-        textDecorationLine: 'underline',
-        fontSize: 16,
-        fontWeight: 'bold',
     },
 });
