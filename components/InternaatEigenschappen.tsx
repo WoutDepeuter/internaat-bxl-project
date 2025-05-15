@@ -89,7 +89,7 @@ export default function InternaatEigenschappen() {
                 const DetailIcon = boxData[activeIndex].icon;
                 return (
                     <View style={styles.detailBox}>
-                        <DetailIcon width={32} height={32} fill="black" />
+                        <DetailIcon width={32} height={32} fill="#0761b7" />
                         <Text style={styles.detailTitle}>{boxData[activeIndex].title}</Text>
                         {Array.isArray(boxData[activeIndex]?.content) &&
                             boxData[activeIndex].content.map((entry, idx) => {
@@ -97,20 +97,22 @@ export default function InternaatEigenschappen() {
                                 const text = isObject ? entry.text : entry;
                                 const isIndented = isObject && entry.indent;
 
+                                // Detect section titles
+                                const isSectionTitle = text === 'Activiteiten tijdens de avond.' || text === 'Activiteiten op woensdagnamiddag.';
+
                                 return (
                                     <Text
                                         key={idx}
                                         style={[
                                             styles.detailParagraph,
                                             isIndented && styles.indentParagraph,
+                                            isSectionTitle && styles.sectionTitle,
                                         ]}
                                     >
-                                        {isIndented ? '▪ ' : '▪ '}
-                                        {text}
+                                        {'\u25A0'} {text}
                                     </Text>
                                 );
                             })}
-
                     </View>
                 );
             })()}
@@ -160,7 +162,7 @@ const styles = StyleSheet.create({
     detailTitle: {
         fontSize: 18,
         fontWeight: 'bold',
-        color: '#0761b7',
+        color: '#000',
         marginTop: 12,
         marginBottom: 8,
         textAlign: 'center',
@@ -180,5 +182,8 @@ const styles = StyleSheet.create({
     indentParagraph: {
         marginLeft: 32,
     },
-
+    sectionTitle: {
+        color: '#248ef2',
+        fontWeight: 'bold',
+    },
 });
