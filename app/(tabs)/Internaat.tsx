@@ -17,9 +17,7 @@ export default function InschrijvenScreen() {
   return (
     <SafeAreaView style={[styles.safeArea, { paddingBottom: insets.bottom }]}>
       <ScrollView contentContainerStyle={styles.container}>
-        <PageBanner title="Inschrijvingen" />
-        <OnzeRegels />
-        <InfoButtons />
+        <PageBanner title="Ons internaat" />
       </ScrollView>
     </SafeAreaView>
   );
