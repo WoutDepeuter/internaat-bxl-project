@@ -6,6 +6,7 @@ import {
     StyleSheet,
     ScrollView,
     useWindowDimensions,
+    Linking,
 } from 'react-native';
 
 const tabs = [
@@ -13,7 +14,6 @@ const tabs = [
     'Download ons reglement',
     'Internaat in beeld',
     'Onze begeleiders',
-    'Download onze afspraken en leefregels',
     'Download onze jaarkalender',
     'Download onze activiteitenkalender',
     'Aanvragen toelating of melden van ziekte',
@@ -32,7 +32,22 @@ export default function SharedTopBarInternaat() {
                     <TouchableOpacity
                         key={tab}
                         style={[styles.tab, activeTab === tab ? styles.tabActive : styles.tabInactive]}
-                        onPress={() => setActiveTab(tab)}
+                        onPress={() => {
+                            setActiveTab(tab);
+
+                            if (tab === 'Download ons reglement') {
+                                Linking.openURL('https://www.woluweinternaat.be/docs/Internaatreglement.pdf');
+                            }
+
+                            if (tab === 'Download onze jaarkalender') {
+                                Linking.openURL('https://www.woluweinternaat.be/docs/Internaatkalender.pdf');
+                            }
+
+                            if (tab === 'Download onze activiteitenkalender') {
+                                Linking.openURL('https://www.woluweinternaat.be/docs/Activiteitenkalender.pdf');
+                            }
+                        }}
+
                     >
                         <Text style={activeTab === tab ? styles.tabTextActive : styles.tabTextInactive}>
                             {tab}
