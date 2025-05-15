@@ -1,70 +1,36 @@
-import { StyleSheet, TouchableOpacity, Linking } from 'react-native';
+import {
+    StyleSheet,
+    View,
+    SafeAreaView,
+    ScrollView,
+} from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import OnzeRegels from "@/components/OnzeRegels";
-import InfoButtons from "@/components/ui/InschrijvenButtons";
+import PageBanner from '@/components/PageBanner';
+import OnzeRegels from '@/components/OnzeRegels';
+import InfoButtons from '@/components/ui/InschrijvenButtons';
 
 export default function InschrijvenScreen() {
-    const handleInschrijfformulierPress = () => {
-        Linking.openURL('https://www.donbosco-sintpieterswoluwe.be/inschrijven');
-    };
-
-    const handleOpenDagPress = () => {
-        Linking.openURL('https://www.donbosco-sintpieterswoluwe.be/open-dag');
-    };
+    const insets = useSafeAreaInsets();
 
     return (
-        <ParallaxScrollView
-            headerBackgroundColor={{ light: '#E0E0E0', dark: '#2C2C2C' }}
-            headerImage={
-                <IconSymbol
-                    size={310}
-                    color="#808080"
-                    name="doc.text.fill"
-                    style={styles.headerImage}
-                />
-            }>
-
-            <OnzeRegels />
-            <InfoButtons/>
-
-
-
-
-
-
-
-
-        </ParallaxScrollView>
+        <SafeAreaView style={[styles.safeArea, { paddingBottom: insets.bottom }]}>
+            <ScrollView contentContainerStyle={styles.container}>
+                <PageBanner title="Inschrijvingen" />
+                <OnzeRegels />
+                <InfoButtons />
+            </ScrollView>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
-    headerImage: {
-        color: '#808080',
-        bottom: -90,
-        left: -35,
-        position: 'absolute',
+    safeArea: {
+        flex: 1,
+        backgroundColor: '#FFF',
     },
-    titleContainer: {
-        flexDirection: 'row',
-        gap: 8,
-        marginBottom: 16,
-    },
-    contentContainer: {
-        gap: 16,
-    },
-    stepContainer: {
-        marginBottom: 16,
-        gap: 8,
-    },
-    buttonContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 8,
-        marginTop: 8,
+    container: {
+        backgroundColor: '#FFF',
+        paddingBottom: 32,
     },
 });

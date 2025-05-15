@@ -3,13 +3,12 @@ import {
     View,
     SafeAreaView,
     ScrollView,
-    ImageBackground,
-    Text,
     useWindowDimensions,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRef, useState } from 'react';
 
+import PageBanner from '@/components/PageBanner';
 import SharedTopBar from '@/components/SharedTopBarOpvoeden';
 import BottomShared from '@/components/BottomShared';
 import LogosPartners from '@/components/LogosPartners';
@@ -41,23 +40,12 @@ export default function OpvoedenScreen() {
                 onScroll={handleScroll}
                 scrollEventThrottle={16}
             >
-                <View style={styles.bannerWrapper}>
-                    <ImageBackground
-                        source={require('@/assets/images/shared/banner.png')}
-                        style={styles.bannerImage}
-                        resizeMode="cover"
-                    >
-                        <View style={styles.overlay} />
-                        <View style={styles.bannerContent}>
-                            <Text style={styles.bannerTitle}>Opvoeden met Don Bosco</Text>
-                        </View>
-                    </ImageBackground>
-                </View>
+                <PageBanner title="Opvoeden met Don Bosco" />
 
                 <SharedTopBar />
 
                 <LogosPartners />
-                
+
                 <View ref={bottomRef}>
                     <BottomShared visible={isBottomVisible} />
                 </View>
@@ -74,29 +62,5 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#FFF',
         paddingBottom: 32,
-    },
-    bannerWrapper: {
-        width: '100%',
-        aspectRatio: 3.5,
-        marginBottom: 0,
-    },
-    bannerImage: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    overlay: {
-        ...StyleSheet.absoluteFillObject,
-        backgroundColor: 'rgba(7, 98, 183, 0.7)',
-    },
-    bannerContent: {
-        zIndex: 1,
-        paddingHorizontal: 16,
-    },
-    bannerTitle: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: '#FFF',
-        textAlign: 'center',
     },
 });
