@@ -17,7 +17,7 @@ export default function ContactScreen() {
 
     return (
         <SafeAreaView style={[styles.container, { paddingBottom: insets.bottom }]}>
-            <ScrollView contentContainerStyle={styles.scrollContent}>
+            <ScrollView>
                 <PageBanner title="Contacteer ons" />
 
                 <View style={styles.section}>
