@@ -1,24 +1,40 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { Pressable, Linking } from 'react-native';
 
 export default function InfoBlok() {
     return (
         <View style={styles.container}>
-            <Text style={styles.line}>
-                <Text style={styles.small}>Het internaat staat open voor alle </Text>
-                <Text style={styles.blueBold}>jongens en meisjes</Text>
-            </Text>
+            <View style={styles.titleContainer}>
+                <Text style={styles.title}>
+                    Onze regels en afspraken
+                </Text>
+                <View style={styles.titleUnderline} />
+            </View>
 
-            <Text style={styles.line}>
-                <Text style={styles.blueBold}>vanaf 10 jaar </Text>
-                <Text style={styles.small}>die les volgen in het</Text>
-            </Text>
 
-            <Text style={styles.line}>
-                <Text style={styles.blueBold}>Nederlandstalige onderwijs </Text>
-                <Text style={styles.small}>in </Text>
-                <Text style={styles.blueBold}>Brussel en omgeving.</Text>
-            </Text>
+            <View style={styles.textContainer}>
+                <Text style={styles.text}>
+                    Een<Text style={styles.highlightBlue}> RESPECT </Text>volle omgang is de basis voor fijn en gezellig samenleven op internaat.
+                </Text>
+
+
+                <Text style={styles.text}>
+                    Duidelijke afspraken en omgangsregels zijn daarbij noodzakelijk.
+                </Text>
+                <Text style={styles.text}>
+                    U vindt deze in het{' '}
+                    <Text
+                        onPress={() =>
+                            Linking.openURL('https://www.woluweinternaat.be/docs/Internaatreglement.pdf')
+                        }
+                        style={styles.highlightYellow}
+                    >
+                        internaatreglement.
+                    </Text>
+                </Text>
+
+            </View>
         </View>
     );
 }
@@ -46,4 +62,45 @@ const styles = StyleSheet.create({
         color: '#0055B3',
         fontWeight: 'bold',
     },
+    titleContainer: {
+        marginBottom: 16,
+        alignItems: 'center',
+    },
+    titleUnderline: {
+        marginTop: 8,
+        height: 3,
+        width: 100,
+        backgroundColor: '#0055B3',
+        borderRadius: 2,
+    },
+    title: {
+        color: '#0055B3',
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
+    textContainer: {
+        flex: 1,
+    },
+    text: {
+        fontSize: 16,
+    },
+    highlightBlue: {
+        color: '#0055B3',
+        fontWeight: 'bold',
+    },
+    highlightYellow: {
+        backgroundColor: '#FFD700',
+        borderRadius: 2,
+        paddingHorizontal: 2,
+    },
+
+    highlightYellowPressed: {
+        backgroundColor: '#FFE863',
+    },
+
+    highlightText: {
+        fontSize: 16,
+        color: '#000',
+    },
+
 });
