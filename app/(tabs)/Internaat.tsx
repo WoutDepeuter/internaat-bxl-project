@@ -9,6 +9,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import PageBanner from '@/components/PageBanner';
 import SharedTopBarInternaat from '@/components/SharedTopBarInternaat';
+import InternaatPlanning from '@/components/InternaatPlanning';
 
 export default function InternaatScreen() {
   const insets = useSafeAreaInsets();
@@ -18,6 +19,7 @@ export default function InternaatScreen() {
       <ScrollView contentContainerStyle={styles.container}>
         <PageBanner title="Ons internaat" />
         <SharedTopBarInternaat />
+        <InternaatPlanning />
       </ScrollView>
     </SafeAreaView>
   );
