@@ -8,16 +8,16 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import PageBanner from '@/components/PageBanner';
-import OnzeRegels from '@/components/OnzeRegels';
-import InfoButtons from '@/components/ui/InschrijvenButtons';
+import SharedTopBarInternaat from '@/components/SharedTopBarInternaat';
 
-export default function InschrijvenScreen() {
+export default function InternaatScreen() {
   const insets = useSafeAreaInsets();
 
   return (
     <SafeAreaView style={[styles.safeArea, { paddingBottom: insets.bottom }]}>
       <ScrollView contentContainerStyle={styles.container}>
         <PageBanner title="Ons internaat" />
+        <SharedTopBarInternaat />
       </ScrollView>
     </SafeAreaView>
   );
