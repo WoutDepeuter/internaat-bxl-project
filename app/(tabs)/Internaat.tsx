@@ -19,7 +19,6 @@ export default function InternaatScreen() {
       <ScrollView contentContainerStyle={styles.container}>
         <PageBanner title="Ons internaat" />
         <SharedTopBarInternaat />
-        <InternaatPlanning />
       </ScrollView>
     </SafeAreaView>
   );
