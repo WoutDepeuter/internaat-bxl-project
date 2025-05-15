@@ -30,9 +30,7 @@ export default function InternaatPlanning() {
                 })}
             </View>
 
-            {activeItem === 'Lager onderwijs' && (
-                <InternaatPlanningDetails />
-            )}
+            <InternaatPlanningDetails group={activeItem} />
         </View>
     );
 }
