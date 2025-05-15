@@ -57,10 +57,17 @@ export default function SharedTopBarInternaat() {
             </View>
 
             <ScrollView style={styles.contentContainer}>
-                <View style={styles.titleWrapper}>
-                    <Text style={styles.title}>{activeTab}</Text>
-                    <View style={styles.underline} />
-                </View>
+                {activeTab !== 'Internaat in beeld' && activeTab !== 'Aanvragen toelating of melden van ziekte' && activeTab !== 'Melden pestgedrag' && (
+                    <View style={styles.titleWrapper}>
+                        <Text style={styles.title}>
+                            {activeTab === 'Meer over ons internaat'
+                                ? 'Hoe ziet een dag er uit op internaat?'
+                                : activeTab}
+                        </Text>
+                        <View style={styles.underline} />
+                    </View>
+                )}
+
             </ScrollView>
         </View>
     );
