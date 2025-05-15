@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 
 export default function LiggingInternaat() {
     const bullets = [
@@ -10,24 +10,22 @@ export default function LiggingInternaat() {
         'Op wandelafstand van verschillende parken, speelterreinen en een speelbos',
     ];
 
+    const isSmallScreen = Dimensions.get('window').width < 768;
+
     return (
-        <View style={styles.container}>
-            {/* LEFT: Title */}
-            <View style={styles.titleContainer}>
-                <Text style={styles.title}>Ligging{'\n'}van het internaat</Text>
+        <View style={[styles.container, isSmallScreen && styles.containerMobile]}>
+            <View style={styles.titleWrapper}>
+                <Text style={styles.title}>Ligging van het internaat</Text>
+                <View style={styles.underline} />
             </View>
 
-            {/* RIGHT: Line + Bullet List */}
-            <View style={styles.listWrapper}>
-                <View style={styles.line} />
-                <View style={styles.bulletList}>
-                    {bullets.map((item, index) => (
-                        <View key={index} style={styles.bulletRow}>
-                            <View style={styles.bullet} />
-                            <Text style={styles.bulletText}>{item}</Text>
-                        </View>
-                    ))}
-                </View>
+            <View style={[styles.listWrapper, isSmallScreen && styles.listWrapperMobile]}>
+                {bullets.map((item, index) => (
+                    <View key={index} style={styles.bulletRow}>
+                        <View style={styles.bullet} />
+                        <Text style={styles.bulletText}>{item}</Text>
+                    </View>
+                ))}
             </View>
         </View>
     );
@@ -40,35 +38,40 @@ const styles = StyleSheet.create({
         paddingVertical: 40,
         paddingHorizontal: 24,
         flexWrap: 'wrap',
+        alignItems: 'flex-start',
     },
-    titleContainer: {
+    containerMobile: {
+        flexDirection: 'column',
+    },
+    titleWrapper: {
         marginRight: 40,
         minWidth: 180,
+        marginBottom: 16,
     },
     title: {
         fontSize: 28,
         fontWeight: 'bold',
         color: '#0761b7',
     },
-    listWrapper: {
-        flexDirection: 'row',
-        alignItems: 'flex-start',
-        gap: 24,
-        flex: 1,
-        minWidth: 240,
-    },
-    line: {
-        width: 2,
+    underline: {
+        marginTop: 8,
+        height: 3,
+        width: 100,
         backgroundColor: '#0761b7',
-        height: '100%',
+        borderRadius: 2,
     },
-    bulletList: {
-        gap: 12,
+    listWrapper: {
         flex: 1,
+        paddingLeft: 24,
+    },
+    listWrapperMobile: {
+        paddingLeft: 0,
+        marginTop: 16,
     },
     bulletRow: {
         flexDirection: 'row',
         alignItems: 'flex-start',
+        marginBottom: 12,
     },
     bullet: {
         width: 8,
