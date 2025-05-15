@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import InternaatPlanning from '@/components/InternaatPlanning';
+import InternaatEigenschappen from '@/components/InternaatEigenschappen';
 
 const tabs = [
     'Meer over ons internaat',
@@ -72,7 +73,13 @@ export default function SharedTopBarInternaat() {
                         </View>
                     )}
 
-                {activeTab === 'Meer over ons internaat' && <InternaatPlanning />}
+                {activeTab === 'Meer over ons internaat' && (
+                    <>
+                        <InternaatPlanning />
+                        <InternaatEigenschappen />
+                    </>
+                )}
+
             </ScrollView>
         </View>
     );
