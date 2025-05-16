@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Pressable, useWindowDimensions } from 'react-native';
+import { View, Text, StyleSheet, Pressable, useWindowDimensions, Linking } from 'react-native';
 
 const documents = [
     'Akkoord internaatreglement',
@@ -31,7 +31,29 @@ export default function DocumentenGrid() {
                     return (
                         <Pressable
                             key={index}
-                            onPress={() => setActiveIndex(index)}
+                            onPress={() => {
+                                setActiveIndex(index);
+
+                                if (doc === 'Akkoord internaatreglement') {
+                                    Linking.openURL('https://www.woluweinternaat.be/docs/AkkoordInternaatreglement.pdf');
+                                } else if (doc === 'Akkoord internetgebruik') {
+                                    Linking.openURL('https://www.woluweinternaat.be/docs/AkkoordInternetgebruik.pdf');
+                                } else if (doc === 'Akkoord gegevensgebruik') {
+                                    Linking.openURL('https://www.woluweinternaat.be/docs/AkkoordGegevensgebruik.pdf');
+                                } else if (doc === 'Bevestiging opvang op zondag') {
+                                    Linking.openURL('https://www.woluweinternaat.be/docs/BevestigingOpvangZondag.pdf');
+                                } else if (doc === 'Toelating deelname activiteiten') {
+                                    Linking.openURL('https://www.woluweinternaat.be/docs/ToelatingDeelnameActiviteiten.pdf');
+                                } else if (doc === 'Toelating verlaten internaat') {
+                                    Linking.openURL('https://www.woluweinternaat.be/docs/ToelatingVerlatenInternaat.pdf');
+                                } else if (doc === 'Toelating verlaten internaat 16+') {
+                                    Linking.openURL('https://www.woluweinternaat.be/docs/ToelatingVerlatenInternaat16plus.pdf');
+                                } else if (doc === 'Toelating verplaatsing naar school') {
+                                    Linking.openURL('https://www.woluweinternaat.be/docs/ToelatingNaarSchool.pdf');
+                                }else if (doc === 'Attest medicatie') {
+                                    Linking.openURL('https://www.woluweinternaat.be/docs/AttestMedicatie.pdf');
+                                }
+                            }}
                             style={[
                                 styles.button,
                                 isActive && styles.buttonActive,
