@@ -9,6 +9,8 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import PageBanner from '@/components/PageBanner';
 import InfoText from '@/components/InfoText';
 import InfoButtons from '@/components/ui/InschrijvenButtons';
+import BelangrijkeDocumenten from '@/components/ui/BelangrijkeDocumenten';
+import BottomShared from '@/components/BottomShared';
 
 export default function InschrijvenScreen() {
     const insets = useSafeAreaInsets();
@@ -19,6 +21,10 @@ export default function InschrijvenScreen() {
                 <PageBanner title="Inschrijvingen" />
                 <InfoText />
                 <InfoButtons />
+                <BelangrijkeDocumenten />
+                <View>
+                    <BottomShared visible={true} />
+                </View>
             </ScrollView>
         </SafeAreaView>
     );

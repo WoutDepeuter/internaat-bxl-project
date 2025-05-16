@@ -41,7 +41,7 @@ export default function InfoBlok() {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        height: 200, // ✅ Fixed height
         justifyContent: 'center',
         alignItems: 'center',
         padding: 16,
