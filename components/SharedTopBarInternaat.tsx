@@ -66,6 +66,7 @@ export default function SharedTopBarInternaat() {
             <ScrollView style={styles.contentContainer}>
                 {activeTab !== 'Internaat in beeld' &&
                     activeTab !== 'Aanvragen toelating of melden van ziekte' &&
+                    activeTab !== 'Onze begeleiders' &&
                     activeTab !== 'Melden pestgedrag' && (
                         <View style={styles.titleWrapper}>
                             <Text style={styles.title}>

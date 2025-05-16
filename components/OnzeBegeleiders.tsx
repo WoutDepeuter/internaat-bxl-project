@@ -73,6 +73,8 @@ const begeleiders: Begeleider[] = [
 export default function OnzeBegeleiders() {
     return (
         <View>
+            <Text style={styles.header}>Onze begeleiders</Text>
+
             <View style={styles.row}>
                 {begeleiders.map((item, index) => (
                     <View key={index} style={styles.card}>
@@ -92,6 +94,13 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         justifyContent: 'space-between',
         rowGap: 16,
+    },
+    header: {
+        fontSize: 18,
+        textAlign: 'center',
+        color: '#0761b7',
+        fontWeight: 'bold',
+        marginBottom: 16,
     },
     card: {
         backgroundColor: '#498bca',
