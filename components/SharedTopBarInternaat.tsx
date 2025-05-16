@@ -14,6 +14,7 @@ import InternaatEigenschappen from '@/components/InternaatEigenschappen';
 import OnzeRegels from '@/components/OnzeRegels';
 import InternaatInBeeld from './InternaatInBeeld';
 import OnzeBegeleiders from './OnzeBegeleiders';
+import AdministratieveMedewerkers from './AdministratieveMedewerkers';
 
 const tabs = [
     'Meer over ons internaat',
@@ -93,6 +94,7 @@ export default function SharedTopBarInternaat() {
                 {activeTab === 'Onze begeleiders' && (
                     <>
                         <OnzeBegeleiders />
+                        <AdministratieveMedewerkers />
                     </>
                 )}
 
