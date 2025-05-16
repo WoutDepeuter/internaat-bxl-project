@@ -129,11 +129,13 @@ const styles = StyleSheet.create({
         marginBottom: 4,
     },
     subtitle: {
-        color: '#0761b7',
+        color: '#248ef2',
         fontSize: 14,
+        fontWeight: 'bold',
         marginBottom: 12,
     },
     address: {
+        fontWeight: 'bold',
         fontSize: 14,
         marginBottom: 12,
     },
@@ -147,6 +149,7 @@ const styles = StyleSheet.create({
         gap: 8,
     },
     link: {
+        fontWeight: 'bold',
         fontSize: 14,
         color: '#000',
     },
