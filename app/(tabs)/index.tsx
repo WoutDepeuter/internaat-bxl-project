@@ -54,7 +54,6 @@ export default function HomeScreen() {
                 <SplitSlider />
                 <View style={styles.spacer} />
 
-                {/* ✅ Testimonial Carousel inserted here */}
                 <TestimonialCarousel />
                 <View style={styles.spacer} />
 
