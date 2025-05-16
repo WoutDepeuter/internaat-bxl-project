@@ -16,6 +16,7 @@ import InternaatInBeeld from './InternaatInBeeld';
 import OnzeBegeleiders from './OnzeBegeleiders';
 import AdministratieveMedewerkers from './AdministratieveMedewerkers';
 import AanvragenToelating from './AanvragenToelating';
+import MeldenPestgedrag from './MeldenPestgedrag';
 
 const tabs = [
     'Meer over ons internaat',
@@ -106,6 +107,11 @@ export default function SharedTopBarInternaat() {
                     </>
                 )}
 
+                {activeTab === 'Melden pestgedrag' && (
+                    <>
+                        <MeldenPestgedrag />
+                    </>
+                )}
             </ScrollView>
         </View>
     );
