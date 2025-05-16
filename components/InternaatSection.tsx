@@ -6,11 +6,12 @@ interface InternaatSectionProps {
     title: string;
     subtitle: string;
     bullets: string[];
+    borderColor?: string;
 }
 
-export default function InternaatSection({ image, title, subtitle, bullets }: InternaatSectionProps) {
+export default function InternaatSection({ image, title, subtitle, bullets, borderColor = '#0761b7' }: InternaatSectionProps) {
     return (
-        <View style={styles.section}>
+        <View style={[styles.section, { borderColor: borderColor ?? '#0761b7' }]}>
             <Image source={image} style={styles.image} resizeMode="cover" />
             <View style={styles.content}>
                 <Text style={styles.title}>{title}</Text>
