@@ -1,4 +1,4 @@
-import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import { useRouter } from 'expo-router';
 
 const icons = [
@@ -24,7 +24,7 @@ export default function IconButtonsRow() {
     const router = useRouter();
 
     return (
-        <View style={styles.row}>
+        <View style={styles.container}>
             {icons.map((icon, index) => (
                 <TouchableOpacity
                     key={index}
@@ -39,21 +39,23 @@ export default function IconButtonsRow() {
 }
 
 const styles = StyleSheet.create({
-    row: {
+    container: {
         flexDirection: 'row',
-        justifyContent: 'center',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        padding: 16,
+        backgroundColor: '#f2f2f2',
+        alignSelf: 'center',
         alignItems: 'center',
-        backgroundColor: '#F2F2F2',
-        paddingVertical: 24,
-        gap: 24,
+
     },
     button: {
-        width: 100,
+        width: '48%',
         height: 100,
         backgroundColor: '#0055B3',
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 8,
+        marginBottom: 16,
     },
     image: {
         width: 50,
