@@ -15,6 +15,9 @@ B. if it's not the first time
 
 C. Docker (quite heavy, for fast local dev the above are faster.)
 
+> [!WARNING]  
+> Running the project with docker will not work if you want to test on mobile. It probably has to do with docker network. This is currently not on our priority list to fix because the above "npm run start" prevents this.
+
 1. `docker compose up`
 
 ## Tech stack - credits
