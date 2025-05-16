@@ -4,7 +4,7 @@ import {
     Text,
     TextInput,
     StyleSheet,
-    Platform,
+    TouchableOpacity,
 } from 'react-native';
 
 export default function MeldenPestgedrag() {
@@ -55,6 +55,18 @@ export default function MeldenPestgedrag() {
                     numberOfLines={8}
                     textAlignVertical="top"
                 />
+
+                <View style={styles.buttonWrapper}>
+                    <TouchableOpacity
+                        style={styles.button}
+                        activeOpacity={0.8}
+                        onPress={() => {
+                            // Handle submission
+                        }}
+                    >
+                        <Text style={styles.buttonText}>Verzenden</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         </View>
     );
@@ -85,5 +97,19 @@ const styles = StyleSheet.create({
     },
     textarea: {
         minHeight: 120,
+    },
+    buttonWrapper: {
+        alignItems: 'flex-end',
+        marginTop: 8,
+    },
+    button: {
+        backgroundColor: '#f4d735',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+    },
+    buttonText: {
+        color: '#0761b7',
+        fontWeight: 'bold',
+        fontSize: 14,
     },
 });
