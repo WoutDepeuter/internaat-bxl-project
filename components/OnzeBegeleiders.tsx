@@ -23,6 +23,51 @@ const begeleiders: Begeleider[] = [
         title: 'Opvoeder',
         image: require('@/assets/images/internaat-begeleiders/Hamila.jpeg'),
     },
+    {
+        name: 'Maaike Camerlinckx',
+        title: 'Opvoeder',
+        image: require('@/assets/images/internaat-begeleiders/MaaikeCamerlinckx.jpeg'),
+    },
+    {
+        name: 'Miguel Henrion',
+        title: 'Opvoeder',
+        image: require('@/assets/images/internaat-begeleiders/Miguel.jpeg'),
+    },
+    {
+        name: 'Priska Kabwe',
+        title: 'Opvoeder',
+        image: require('@/assets/images/internaat-begeleiders/Priska.jpeg'),
+    },
+    {
+        name: 'Tiny Nerinckx',
+        title: 'Opvoeder',
+        image: require('@/assets/images/internaat-begeleiders/TinyNerinckx.jpeg'),
+    },
+    {
+        name: 'Jan Van Oycke',
+        title: 'Opvoeder',
+        image: require('@/assets/images/internaat-begeleiders/JanVanOycke.jpeg'),
+    },
+    {
+        name: 'Dieter Vandendriessche',
+        title: 'Opvoeder',
+        image: require('@/assets/images/internaat-begeleiders/DieterVandendriessche.jpeg'),
+    },
+    {
+        name: 'Kosta Vlachos',
+        title: 'Opvoeder',
+        image: require('@/assets/images/internaat-begeleiders/KostaVlachos.jpeg'),
+    },
+    {
+        name: 'Nobel',
+        title: '',
+        image: require('@/assets/images/internaat-begeleiders/Nobel.jpeg'),
+    },
+    {
+        name: 'Plum',
+        title: '',
+        image: require('@/assets/images/internaat-begeleiders/Plum.jpeg'),
+    },
 ];
 
 export default function OnzeBegeleiders() {
