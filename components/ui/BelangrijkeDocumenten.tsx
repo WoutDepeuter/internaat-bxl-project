@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Pressable, useWindowDimensions } from 'react-native';
 
 const documents = [
@@ -14,6 +14,7 @@ const documents = [
 ];
 
 export default function DocumentenGrid() {
+    const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const { width } = useWindowDimensions();
     const isMobile = width < 768;
 
@@ -25,11 +26,28 @@ export default function DocumentenGrid() {
             </View>
 
             <View style={styles.grid}>
-                {documents.map((doc, index) => (
-                    <Pressable key={index} style={styles.button}>
-                        <Text style={styles.buttonText}>{doc}</Text>
-                    </Pressable>
-                ))}
+                {documents.map((doc, index) => {
+                    const isActive = activeIndex === index;
+                    return (
+                        <Pressable
+                            key={index}
+                            onPress={() => setActiveIndex(index)}
+                            style={[
+                                styles.button,
+                                isActive && styles.buttonActive,
+                            ]}
+                        >
+                            <Text
+                                style={[
+                                    styles.buttonText,
+                                    isActive && styles.buttonTextActive,
+                                ]}
+                            >
+                                {doc}
+                            </Text>
+                        </Pressable>
+                    );
+                })}
             </View>
         </View>
     );
@@ -73,10 +91,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         elevation: 1,
     },
+    buttonActive: {
+        backgroundColor: '#f4d735',
+        borderColor: '#f4d735',
+    },
     buttonText: {
         color: '#0055B3',
         fontWeight: 'bold',
         textAlign: 'center',
         fontSize: 13,
+    },
+    buttonTextActive: {
+        color: '#fff',
     },
 });
