@@ -4,6 +4,7 @@ import {
     SafeAreaView,
     ScrollView,
     useWindowDimensions,
+    Platform,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRef, useState } from 'react';
@@ -18,6 +19,32 @@ import ToTopButton from '@/components/ToTopButton';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 
 export default function HomeScreen() {
+    const splitSliderRef = useRef<View>(null);
+    const testimonialRef = useRef<View>(null);
+
+    const scrollToSplitSlider = () => {
+        if (!splitSliderRef.current || !scrollRef.current) return;
+
+        splitSliderRef.current.measure((x, y, width, height, pageX, pageY) => {
+            scrollRef.current?.scrollTo({
+                y: Platform.OS === 'web' ? pageY : y,
+                animated: true,
+            });
+        });
+    };
+
+    const scrollToTestimonials = () => {
+        if (!testimonialRef.current || !scrollRef.current) return;
+
+        testimonialRef.current.measure((x, y, width, height, pageX, pageY) => {
+            scrollRef.current?.scrollTo({
+                y: Platform.OS === 'web' ? pageY : y,
+                animated: true,
+            });
+        });
+    };
+
+
     const insets = useSafeAreaInsets();
     const scrollRef = useRef<ScrollView>(null);
     const bottomRef = useRef<View>(null);
@@ -47,14 +74,25 @@ export default function HomeScreen() {
                 onScroll={handleScroll}
                 scrollEventThrottle={16}
             >
-                <ImageSlider />
+                <ImageSlider
+                    onPressTroeven={scrollToSplitSlider}
+                    onPressGetuigenissen={scrollToTestimonials}
+                />
+
                 <View style={styles.spacer} />
                 <InfoText />
                 <IconButtonsRow />
-                <SplitSlider />
+                <View collapsable={false} ref={splitSliderRef}>
+                    <SplitSlider />
+                </View>
+
                 <View style={styles.spacer} />
 
-                <TestimonialCarousel />
+                <View collapsable={false} ref={testimonialRef}>
+                    <TestimonialCarousel />
+                </View>
+
+
                 <View style={styles.spacer} />
 
                 <View ref={bottomRef}>

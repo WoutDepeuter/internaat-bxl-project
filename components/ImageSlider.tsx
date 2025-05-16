@@ -11,7 +11,14 @@ const images = [
     require('@/assets/images/homepage/slider3.jpeg'),
 ];
 
-export default function ImageSlider() {
+export default function ImageSlider({
+    onPressTroeven,
+    onPressGetuigenissen,
+}: {
+    onPressTroeven: () => void;
+    onPressGetuigenissen: () => void;
+}) {
+
     const [activeIndex, setActiveIndex] = useState(0);
     const scrollRef = useRef<ScrollView>(null);
 
@@ -49,12 +56,14 @@ export default function ImageSlider() {
             <View style={styles.overlay}>
                 <Text style={styles.title}>Je thuis voelen{"\n"}op internaat!</Text>
                 <View style={styles.buttonRow}>
-                    <TouchableOpacity style={styles.yellowButton}>
+                    <TouchableOpacity style={styles.yellowButton} onPress={onPressTroeven}>
                         <Text style={styles.buttonText}>Onze troeven</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.blueButton}>
+
+                    <TouchableOpacity style={styles.blueButton} onPress={onPressGetuigenissen}>
                         <Text style={styles.buttonText}>Getuigenissen</Text>
                     </TouchableOpacity>
+
                 </View>
             </View>
 
