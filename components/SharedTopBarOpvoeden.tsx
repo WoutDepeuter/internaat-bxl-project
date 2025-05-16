@@ -135,43 +135,42 @@ export default function SharedTopBar() {
                     </Text>
                     <View style={styles.underline} />
                 </View>
-
+                
                 {activeTab === 'Wie was Don Bosco?' &&
                     content[activeTab].map((section, index) => {
                         const Icon = iconComponents[index];
                         return (
-                            <View
-                                key={index}
-                                style={[styles.row, isSmallScreen && styles.rowMobile]}
-                            >
-                                {/* Icon */}
-                                <View style={styles.column}>
-                                    {Icon && <Icon width={40} height={40} fill="#0761b7" />}
+                            <View key={index} style={{ marginBottom: 24 }}>
+                                {/* Icon + Text Row */}
+                                <View style={[styles.row, { alignItems: 'flex-start', marginBottom: 12 }]}>
+                                    <View style={{ marginRight: 12 }}>
+                                        {Icon && <Icon width={40} height={40} fill="#0761b7" />}
+                                    </View>
+                                    <View style={{ flex: 1 }}>
+                                        <Text style={styles.subtitle}>{section.title}</Text>
+                                        <Text style={styles.paragraph}>{section.text}</Text>
+                                    </View>
                                 </View>
 
-                                {/* Text */}
-                                <View style={styles.textColumn}>
-                                    <Text style={styles.subtitle}>{section.title}</Text>
-                                    <Text style={styles.paragraph}>{section.text}</Text>
-                                </View>
-
-                                {/* Image */}
-                                <View style={styles.column}>
-                                    {section.image && (
+                                {/* Optional Image Below Text */}
+                                {section.image && (
+                                    <View style={{ alignItems: 'center', marginTop: 8 }}>
                                         <Image
                                             source={section.image}
-                                            style={[
-                                                styles.image,
-                                                { width: isSmallScreen ? width * 0.8 : 300, height: isSmallScreen ? 200 : 250 },
-                                            ]}
+                                            style={{
+                                                width: isSmallScreen ? width * 0.8 : 300,
+                                                height: isSmallScreen ? 200 : 250,
+                                            }}
                                             resizeMode="cover"
                                         />
-                                    )}
-                                </View>
+                                    </View>
+                                )}
                             </View>
                         );
-                    })}
-                {activeTab === 'Ons opvoedingsproject' &&
+                    })
+                }
+
+                {activeTab === 'Ons opvoedingsproject' && (
                     <>
                         <Text style={styles.paragraph}>
                             In de 19e eeuw richtte Don Bosco het oratorium op voor de jongeren.{"\n\n"}
@@ -193,12 +192,14 @@ export default function SharedTopBar() {
                         {content[activeTab].map((section, index) => {
                             const Icon = opvoedingsprojectIcons[index];
                             return (
-                                <View key={index} style={[styles.row, isSmallScreen && styles.rowMobile]}>
-                                    <View style={styles.column}>
+                                <View
+                                    key={index}
+                                    style={[styles.row, { alignItems: 'flex-start', marginBottom: 12 }]}
+                                >
+                                    <View style={{ marginRight: 12 }}>
                                         {Icon && <Icon width={40} height={40} fill="#0761b7" />}
                                     </View>
-
-                                    <View style={styles.textColumn}>
+                                    <View style={{ flex: 1 }}>
                                         <Text style={styles.subtitle}>{section.title}</Text>
                                         <Text style={styles.paragraph}>{section.text}</Text>
                                     </View>
@@ -206,9 +207,10 @@ export default function SharedTopBar() {
                             );
                         })}
                     </>
-                }
+                )}
 
-                {activeTab === 'Onze waarden' &&
+
+                {activeTab === 'Onze waarden' && (
                     <>
                         <Text style={styles.paragraph}>
                             Centraal in onze werking staat een{' '}
@@ -220,11 +222,7 @@ export default function SharedTopBar() {
 
                         {/* OpsommingOpvoeden placeholder */}
                         <View style={{ marginVertical: 16 }}>
-                            <Text style={[styles.subtitle, { textAlign: 'center' }]}>
-                                <View style={{ marginVertical: 16 }}>
-                                    <OpsommingOpvoedenOnzeWaarden />
-                                </View>
-                            </Text>
+                            <OpsommingOpvoedenOnzeWaarden />
                         </View>
 
                         <Text style={[styles.subtitle, { marginBottom: 8 }]}>
@@ -234,11 +232,11 @@ export default function SharedTopBar() {
                         <View style={{ height: 24 }} />
 
                         {/* Paragraph 1 */}
-                        <View style={[styles.row, isSmallScreen && styles.rowMobile]}>
-                            <View style={styles.column}>
+                        <View style={[styles.row, { alignItems: 'flex-start', marginBottom: 12 }]}>
+                            <View style={{ marginRight: 12 }}>
                                 <IconsSolid width={40} height={40} fill="#0761b7" />
                             </View>
-                            <View style={styles.textColumn}>
+                            <View style={{ flex: 1 }}>
                                 <Text style={styles.paragraph}>
                                     Opvoeden gebeurt midden tussen de jongeren in een hartelijke sfeer{"\n\n"}
                                     Opvoeden gebeurt in het dagelijkse leven, bij het eten, studeren, spelen, babbelen, … De opvoeder staat – net als Don Bosco – midden tussen de jongeren. Hij is aanspreekbaar en betrokken en oprecht in hen geïnteresseerd. Hij zet zich onvoorwaardelijk voor hen in en bouwt met hen een vertrouwensband op binnen een warme, familiale en hartelijke leefomgeving.{"\n"}
@@ -248,11 +246,11 @@ export default function SharedTopBar() {
                         </View>
 
                         {/* Paragraph 2 */}
-                        <View style={[styles.row, isSmallScreen && styles.rowMobile]}>
-                            <View style={styles.column}>
+                        <View style={[styles.row, { alignItems: 'flex-start', marginBottom: 12 }]}>
+                            <View style={{ marginRight: 12 }}>
                                 <HandshakeIcon width={40} height={40} fill="#0761b7" />
                             </View>
-                            <View style={styles.textColumn}>
+                            <View style={{ flex: 1 }}>
                                 <Text style={styles.paragraph}>
                                     Een redelijke, begripvolle omgang{"\n\n"}
                                     Dit wil echter niet zeggen dat alles kan en mag. De opvoeder leert de jongeren situaties inschatten (zien) met een grote dosis gezond verstand (oordelen) en ernaar handelen (handelen). De opvoeder is het stootblok waartegen de jongeren soms botsen. Hij gaat hierbij telkens opnieuw begripvol in gesprek met de jongeren. Dit alles doet hij in een omgeving waarin een duidelijke structuur en regelmaat heersen.
@@ -261,11 +259,11 @@ export default function SharedTopBar() {
                         </View>
 
                         {/* Paragraph 3 */}
-                        <View style={[styles.row, isSmallScreen && styles.rowMobile]}>
-                            <View style={styles.column}>
+                        <View style={[styles.row, { alignItems: 'flex-start', marginBottom: 12 }]}>
+                            <View style={{ marginRight: 12 }}>
                                 <HandsHoldingIcon width={40} height={40} fill="#0761b7" />
                             </View>
-                            <View style={styles.textColumn}>
+                            <View style={{ flex: 1 }}>
                                 <Text style={styles.paragraph}>
                                     Vanuit ons geloof{"\n\n"}
                                     De waarden waarvan hierboven sprake stoelen allemaal op ons geloof in Don Bosco die ons leerde te vertrouwen in Jezus en Maria. Vanuit dit geloof koos Don Bosco voor de zwaksten. Dit doen wij vandaag ook, met respect voor de eigen inspiratie van elke jongere en vanuit ons geloof in hen.
@@ -273,7 +271,8 @@ export default function SharedTopBar() {
                             </View>
                         </View>
                     </>
-                }
+                )}
+
 
                 {activeTab === 'Partners' && (
                     <View>
