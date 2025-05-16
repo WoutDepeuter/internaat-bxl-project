@@ -19,7 +19,7 @@ import HomeHeartIcon from '@/assets/svgs/donbosco-opvoedingsproject/home-heart-s
 import SchoolIcon from '@/assets/svgs/donbosco-opvoedingsproject/home-heart-svgrepo-com.svg'; // same icon as above
 import VolleyballIcon from '@/assets/svgs/donbosco-opvoedingsproject/volleyball-solid.svg';
 import HandsHeartIcon from '@/assets/svgs/donbosco-opvoedingsproject/hands-holding-heart-svgrepo-com.svg';
-const DonBoscoOpvoedingsprojectImage = require('../assets/images/donbosco-opvoedingsproject/DonBoscoOpvoedingsproject.jpeg');
+const DonBoscoOpvoedingsprojectImage = require('@/assets/images/donbosco-opvoedingsproject/DonBoscoOpvoedingsproject.jpeg');
 
 import IconsSolid from '@/assets/svgs/donbosco-waarden/icons-solid.svg';
 import HandshakeIcon from '@/assets/svgs/donbosco-waarden/handshake-regular.svg';
@@ -58,24 +58,24 @@ const content = {
         {
             title: 'Jeugd',
             text: `Giovanni Bosco wordt op 16 augustus 1815 geboren in Becchi (Noord-Italië, nabij Turijn). Hij groeit op in een arm, vaderloos gezin op het platteland.\n\nDe rode draad doorheen zijn moeilijke jeugd is werken én studeren, dag en nacht want het is zijn ultieme wens om priester te worden. Slim en koppig als hij is, lukt het hem om priester te worden in 1841.`,
-            icon: require('../assets/svgs/donbosco-wie/child-reaching-solid.svg'),
-            image: require('../assets/images/donbosco-wie/DonBoscoJeugd.jpeg'),
+            icon: require('@/assets/svgs/donbosco-wie/child-reaching-solid.svg'),
+            image: require('@/assets/images/donbosco-wie/DonBoscoJeugd.jpeg'),
         },
         {
             title: 'Priesterschap',
             text: `Als priester kiest hij voor de moeilijke weg : Don Bosco trekt van het platteland naar de grootstad Turijn en word daar getroffen door de vele jongeren die er doelloos en dakloos rondzwerven op straat op zoek naar werk dat er niet is.\n\nHij ziet kinderen en jongeren in de meest verschrikkelijke omstandigheden werken en overleven. Ze komen terecht in de gevangenis tussen de zware misdadigers. Hij voelt zich geroepen om zich over hen te ontfermen. Een ongebruikelijke keuze voor een priester in die tijd.`,
-            icon: require('../assets/svgs/donbosco-wie/church-solid.svg'),
+            icon: require('@/assets/svgs/donbosco-wie/church-solid.svg'),
         },
         {
             title: 'Levenswerk',
             text: `Het wordt zijn levenswerk: hij richt een oratorium op: een plaats waar deze jongeren samen thuis komen in spel, studie, gebed, … Het oratorium in Valdocco, buitenwijk van Turijn, start in 1846.\n\nZijn oudste jongens worden zijn eerste medewerkers.`,
-            icon: require('../assets/svgs/donbosco-wie/hands-holding-child-solid.svg'),
-            image: require('../assets/images/donbosco-wie/DonBoscoPriester.jpeg'),
+            icon: require('@/assets/svgs/donbosco-wie/hands-holding-child-solid.svg'),
+            image: require('@/assets/images/donbosco-wie/DonBoscoPriester.jpeg'),
         },
         {
             title: 'Opvolging',
             text: `Daaruit ontstaat de congregatie van de salesianen en later de zusters van Don Bosco, vandaag wereldwijd aanwezig met tal van projecten voor en met jongeren.\n\nDon Bosco sterft op 31 januari 1888.\n\nIn 1891 komen de eerste salesianen naar België.\nOver de hele wereld wordt zijn pedagogische visie vertaald naar de praktijk van vandaag`,
-            icon: require('../assets/svgs/donbosco-wie/people-group-solid.svg'),
+            icon: require('@/assets/svgs/donbosco-wie/people-group-solid.svg'),
         },
     ],
     "Ons opvoedingsproject": [

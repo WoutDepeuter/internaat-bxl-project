@@ -2,10 +2,10 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, ImageSourcePropType } from 'react-native';
 import { useWindowDimensions } from 'react-native';
 
-const firstImage = require('../assets/images/donbosco-waarden/DonBoscoRustRegelmaat.jpeg');
-const secondImage = require('../assets/images/donbosco-waarden/DonBoscoJezelfZijn.jpeg');
-const thirdImage = require('../assets/images/donbosco-waarden/DonBoscoLiefdevolWarm.jpeg');
-const fourthImage = require('../assets/images/donbosco-waarden/DonBoscoBruisendLevendig.jpeg');
+const firstImage = require('@/assets/images/donbosco-waarden/DonBoscoRustRegelmaat.jpeg');
+const secondImage = require('@/assets/images/donbosco-waarden/DonBoscoJezelfZijn.jpeg');
+const thirdImage = require('@/assets/images/donbosco-waarden/DonBoscoLiefdevolWarm.jpeg');
+const fourthImage = require('@/assets/images/donbosco-waarden/DonBoscoBruisendLevendig.jpeg');
 
 const firstBulletPoints = [
     'Rust en regelmaat',

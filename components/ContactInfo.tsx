@@ -27,7 +27,7 @@ export default function ContactInfo() {
             <View style={[styles.imageContainer, isSmallScreen && styles.imageContainerMobile]}>
                 <View style={styles.blueBox}>
                     <Image
-                        source={require('../assets/images/contact/contactpagina.jpeg')}
+                        source={require('@/assets/images/contact/contactpagina.jpeg')}
                         style={styles.image}
                         resizeMode="cover"
                     />
