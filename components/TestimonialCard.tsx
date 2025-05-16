@@ -15,21 +15,16 @@ export default function TestimonialCard({ name, age, text, image }: Props) {
     return (
         <View style={styles.outerContainer}>
             <View style={styles.card}>
-                {/* Left: Text block */}
-                <View style={styles.textContainer}>
-                    <MaterialIcons name="format-quote" size={30} color="#FACC15" />
-                    <Text style={styles.text}>{text}</Text>
+                <Image source={image} style={styles.image} />
+
+                <View style={styles.label}>
+                    <Text style={styles.name}>{name}</Text>
+                    <Text style={styles.age}> | {age}</Text>
                 </View>
 
-                {/* Right: Image with label */}
-                <View style={styles.imageContainer}>
-                    <Image source={image} style={styles.image} />
-                    <View style={styles.overlayLabel}>
-                        <Text style={styles.labelText}>
-                            <Text style={styles.name}>{name}</Text> |{' '}
-                            <Text style={styles.age}>{age}</Text>
-                        </Text>
-                    </View>
+                <View style={styles.textContainer}>
+                    <MaterialIcons name="format-quote" size={24} color="#FACC15" />
+                    <Text style={styles.text}>{text}</Text>
                 </View>
             </View>
         </View>
@@ -40,56 +35,43 @@ const styles = StyleSheet.create({
     outerContainer: {
         width: screenWidth,
         alignItems: 'center',
+        paddingHorizontal: 16,
     },
     card: {
         width: '100%',
-        maxWidth: 800,
-        flexDirection: 'row',
+        maxWidth: 600,
         backgroundColor: '#F3F4F6',
         borderTopWidth: 4,
         borderTopColor: '#FACC15',
-        padding: 20,
-        borderRadius: 12,
-        alignItems: 'flex-start',
-        gap: 20,
-    },
-    textContainer: {
-        flex: 1,
-        paddingRight: 10,
-    },
-    text: {
-        fontSize: 16,
-        color: '#374151',
-        marginTop: 10,
-        lineHeight: 24,
-    },
-    imageContainer: {
-        position: 'relative',
+        padding: 16,
+        alignItems: 'center',
     },
     image: {
-        width: 220,
-        height: 300,
-        borderRadius: 8,
+        width: 160,
+        height: 220,
+        marginBottom: 8,
     },
-    overlayLabel: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        backgroundColor: '#FACC15',
-        paddingVertical: 6,
-        paddingHorizontal: 12,
-        borderBottomRightRadius: 8,
-    },
-    labelText: {
-        color: '#1D4ED8',
-        fontWeight: 'bold',
+    label: {
+        flexDirection: 'row',
+        marginBottom: 12,
     },
     name: {
-        color: '#1D4ED8',
         fontWeight: 'bold',
+        color: '#1D4ED8',
+        fontSize: 16,
     },
     age: {
-        color: '#1D4ED8',
         fontWeight: 'bold',
+        color: '#1D4ED8',
+        fontSize: 16,
+    },
+    textContainer: {
+        width: '100%',
+    },
+    text: {
+        fontSize: 14,
+        color: '#374151',
+        lineHeight: 20,
+        marginTop: 4,
     },
 });
