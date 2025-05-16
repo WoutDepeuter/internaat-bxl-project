@@ -40,6 +40,60 @@ export default function InternaatInBeeld() {
                     'Kleine lokaaltjes verbonden aan de studieruimte om samen te studeren, elkaar op te vragen ...',
                 ]}
             />
+
+            <InternaatSection
+                image={require('@/assets/images/internaat-beeld/leefruimte.jpeg')}
+                title="De leefruimte"
+                subtitle="Een gezellige ontspanningsruimte per leeftijdsgroep"
+                bullets={[
+                    'Bar die uitnodigt tot gezellig samenzijn',
+                    'Pool- en biljarttafel, pingpongtafel, tafelvoetbal, ...',
+                    'Playstation, Wii, ...',
+                    'Tal van gezelschapsspellen en heel wat speelgoed',
+                    'Bibliotheek leesboeken en stripboeken',
+                    'TV-hoek met internetaansluiting (Netflix, ...)',
+                ]}
+            />
+
+            <InternaatSection
+                image={require('@/assets/images/internaat-beeld/eetzaal.jpeg')}
+                title="De eetzaal en de keuken"
+                subtitle="Hier kunnen we gezellig tafelen"
+                bullets={[
+                    'Ruime cafetaria',
+                    'Gevarieerd menu',
+                    'Halalmaaltijd en vegetarische maaltijd mogelijk',
+                    'Extra\'s op feestdagen',
+                    'Suggesties door de jongeren mogelijk',
+                    'Een enthousiaste chef',
+                ]}
+            />
+
+            <InternaatSection
+                image={require('@/assets/images/internaat-beeld/buitenspeelruimte.jpeg')}
+                title="De buitenspeelruimte"
+                subtitle="De plek om je uit te leven"
+                bullets={[
+                    'Een speelplaats met sportvelden, een podium en gezellige zithoeken, ontworpen door de leerlingen',
+                    'Een park en speelbos in de buurt (steeds onder begeleiding van opvoeders)',
+                    'Externe activiteiten bij de deur (meestal op woensdagnamiddag)',
+                ]}
+            />
+
+            <InternaatSection
+                image={require('@/assets/images/internaat-beeld/lokalen.jpeg')}
+                title="De andere lokalen"
+                subtitle="Een ontdekkingstocht"
+                bullets={[
+                    'Open leercentrum met tal van mogelijkheden om te studeren, samen of individueel',
+                    'Vergaderzaaltje voor overlegmomenten',
+                    'Atelier voor knutselprojecten',
+                    'Keukentje voor kookactiviteiten',
+                    'Stille ruimte om tot rust te komen',
+                    'Fitnessruimte om je uit te leven',
+                    'Sportzaal om de hoek',
+                ]}
+            />
         </View>
     );
 }
