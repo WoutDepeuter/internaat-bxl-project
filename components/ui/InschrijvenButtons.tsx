@@ -249,12 +249,14 @@ const styles = StyleSheet.create({
     },
     buttonRow: {
         flexDirection: 'row',
-        justifyContent: 'space-evenly',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
         paddingHorizontal: 16,
         paddingVertical: 20,
+        rowGap: 16,
+        columnGap: 10,
     },
 
-    // Buttons
     button: {
         backgroundColor: '#FFF',
         borderColor: '#FFD700',
@@ -262,10 +264,11 @@ const styles = StyleSheet.create({
         paddingVertical: 24,
         paddingHorizontal: 12,
         alignItems: 'center',
-        width: 100,
+        width: '48%',
         height: 120,
         justifyContent: 'center',
     },
+
     activeButton: {
         backgroundColor: '#FFD700',
         borderColor: '#0055B3',
