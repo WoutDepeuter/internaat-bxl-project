@@ -3,6 +3,20 @@
 ## Description
 This repository includes code for the mobile version of the [website of Don Bosco Boarding School at Woluwe](https://www.woluweinternaat.be/).
 
+## Instructions to run the project:
+A. if first time running project:
+
+1. `npm install`
+2. `npm run start`
+
+B. if it's not the first time
+
+1. `npm run start`
+
+C. Docker (quite heavy, for fast local dev the above are faster.)
+
+1. `docker compose up`
+
 ## Tech stack - credits
 - [Expo](https://github.com/expo/expo/)
 - [FontAwesome](https://fontawesome.com/)
