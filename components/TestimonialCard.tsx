@@ -23,7 +23,7 @@ export default function TestimonialCard({ name, age, text, image }: Props) {
                 </View>
 
                 <View style={styles.textContainer}>
-                    <MaterialIcons name="format-quote" size={24} color="#FACC15" />
+                    <MaterialIcons name="format-quote" size={24} color="#f4d735" />
                     <Text style={styles.text}>{text}</Text>
                 </View>
             </View>
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         maxWidth: 600,
         backgroundColor: '#F3F4F6',
         borderTopWidth: 4,
-        borderTopColor: '#FACC15',
+        borderTopColor: '#f4d735',
         padding: 16,
         alignItems: 'center',
     },
@@ -57,12 +57,12 @@ const styles = StyleSheet.create({
     },
     name: {
         fontWeight: 'bold',
-        color: '#1D4ED8',
+        color: '#248ef2',
         fontSize: 16,
     },
     age: {
         fontWeight: 'bold',
-        color: '#1D4ED8',
+        color: '#248ef2',
         fontSize: 16,
     },
     textContainer: {
