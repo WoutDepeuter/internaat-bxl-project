@@ -12,6 +12,7 @@ import {
 import InternaatPlanning from '@/components/InternaatPlanning';
 import InternaatEigenschappen from '@/components/InternaatEigenschappen';
 import OnzeRegels from '@/components/OnzeRegels';
+import InternaatInBeeld from './InternaatInBeeld';
 
 const tabs = [
     'Meer over ons internaat',
@@ -79,6 +80,12 @@ export default function SharedTopBarInternaat() {
                         <InternaatPlanning />
                         <InternaatEigenschappen />
                         <OnzeRegels />
+                    </>
+                )}
+
+                {activeTab === 'Internaat in beeld' && (
+                    <>
+                        <InternaatInBeeld />
                     </>
                 )}
 
