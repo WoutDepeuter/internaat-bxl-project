@@ -16,7 +16,7 @@ import HandsIcon from '@/assets/svgs/donbosco-wie/hands-holding-child-solid.svg'
 import PeopleIcon from '@/assets/svgs/donbosco-wie/people-group-solid.svg';
 
 import HomeHeartIcon from '@/assets/svgs/donbosco-opvoedingsproject/home-heart-svgrepo-com.svg';
-import SchoolIcon from '@/assets/svgs/donbosco-opvoedingsproject/home-heart-svgrepo-com.svg'; // same icon as above
+import SchoolIcon from '@/assets/svgs/donbosco-opvoedingsproject/graduation-cap-solid.svg';
 import VolleyballIcon from '@/assets/svgs/donbosco-opvoedingsproject/volleyball-solid.svg';
 import HandsHeartIcon from '@/assets/svgs/donbosco-opvoedingsproject/hands-holding-heart-svgrepo-com.svg';
 const DonBoscoOpvoedingsprojectImage = require('@/assets/images/donbosco-opvoedingsproject/DonBoscoOpvoedingsproject.jpeg');
