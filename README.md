@@ -4,6 +4,10 @@
 This repository includes code for the mobile version of the [website of Don Bosco Boarding School at Woluwe](https://www.woluweinternaat.be/).
 
 ## Instructions to run the project:
+
+> [!NOTE]  
+> Install NodeJs before proceeding. https://nodejs.org/en (should come with "npm" and "npx" installed.)
+
 A. if first time running project:
 
 1. `npm install`
