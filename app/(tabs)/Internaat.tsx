@@ -12,16 +12,26 @@ import PageBanner from '@/components/PageBanner';
 import SharedTopBarInternaat from '@/components/SharedTopBarInternaat';
 import InternaatPlanning from '@/components/InternaatPlanning';
 import ToTopButton from '@/components/ToTopButton';
+import BottomShared from '@/components/BottomShared';
 
 export default function InternaatScreen() {
   const insets = useSafeAreaInsets();
   const { height: windowHeight } = useWindowDimensions();
   const scrollRef = useRef<ScrollView>(null);
+  const bottomRef = useRef<View>(null);
   const [showToTop, setShowToTop] = useState(false);
+  const [isBottomVisible, setIsBottomVisible] = useState(false);
 
   const handleScroll = (event: any) => {
     const scrollY = event.nativeEvent.contentOffset.y;
     setShowToTop(scrollY > windowHeight * 0.1);
+
+    bottomRef.current?.measure((x, y, width, height, pageX, pageY) => {
+      const screenBottom = scrollY + windowHeight;
+      if (pageY < screenBottom) {
+        setIsBottomVisible(true);
+      }
+    });
   };
 
   return (
@@ -34,6 +44,13 @@ export default function InternaatScreen() {
       >
         <PageBanner title="Ons internaat" />
         <SharedTopBarInternaat />
+        <InternaatPlanning />
+
+        <View style={{ height: 32 }} />
+
+        <View ref={bottomRef}>
+          <BottomShared visible={isBottomVisible} />
+        </View>
       </ScrollView>
 
       {showToTop && (
