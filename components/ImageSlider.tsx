@@ -120,13 +120,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFD700',
         paddingVertical: 12,
         paddingHorizontal: 20,
-        borderRadius: 8,
     },
     blueButton: {
         backgroundColor: '#0055B3',
         paddingVertical: 12,
         paddingHorizontal: 20,
-        borderRadius: 8,
     },
     buttonText: {
         color: '#FFF',
