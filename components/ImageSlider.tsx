@@ -32,15 +32,15 @@ export default function ImageSlider() {
 
     return (
         <View style={styles.container}>
-        <ScrollView
-            ref={scrollRef}
-            horizontal
-            pagingEnabled
-            showsHorizontalScrollIndicator={false}
-            onMomentumScrollEnd={onScroll}
-            scrollEventThrottle={16}
-            style={styles.scrollView}
-        >
+            <ScrollView
+                ref={scrollRef}
+                horizontal
+                pagingEnabled
+                showsHorizontalScrollIndicator={false}
+                onMomentumScrollEnd={onScroll}
+                scrollEventThrottle={16}
+                style={styles.scrollView}
+            >
                 {images.map((image, index) => (
                     <Image key={index} source={image} style={styles.image} resizeMode="cover" />
                 ))}

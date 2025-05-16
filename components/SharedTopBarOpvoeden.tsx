@@ -135,7 +135,7 @@ export default function SharedTopBar() {
                     </Text>
                     <View style={styles.underline} />
                 </View>
-                
+
                 {activeTab === 'Wie was Don Bosco?' &&
                     content[activeTab].map((section, index) => {
                         const Icon = iconComponents[index];
