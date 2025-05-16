@@ -261,7 +261,6 @@ const styles = StyleSheet.create({
         borderWidth: 4,
         paddingVertical: 24,
         paddingHorizontal: 12,
-        borderRadius: 4,
         alignItems: 'center',
         width: 100,
         height: 120,
@@ -363,7 +362,6 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#CCC',
         padding: 10,
-        borderRadius: 6,
         backgroundColor: '#FFF',
         marginBottom: 10,
     },
@@ -380,7 +378,6 @@ const styles = StyleSheet.create({
     genderButton: {
         paddingVertical: 6,
         paddingHorizontal: 12,
-        borderRadius: 6,
         borderWidth: 1,
         borderColor: '#999',
     },
@@ -391,7 +388,6 @@ const styles = StyleSheet.create({
     submitButton: {
         backgroundColor: '#FFD700',
         padding: 12,
-        borderRadius: 8,
         alignItems: 'center',
         marginBottom: 16,
     },
