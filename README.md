@@ -8,6 +8,9 @@ This repository includes code for the mobile version of the [website of Don Bosc
 > [!NOTE]  
 > Install NodeJs before proceeding. https://nodejs.org/en (should come with "npm" and "npx" installed.)
 
+> [!NOTE]  
+> Some pages may look weird if viewed on webbrowser (pc). The primarily goal for this project was to look good on mobile (android).
+
 A. if first time running project:
 
 1. `npm install`
