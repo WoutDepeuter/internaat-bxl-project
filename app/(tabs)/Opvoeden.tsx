@@ -12,6 +12,7 @@ import PageBanner from '@/components/PageBanner';
 import SharedTopBar from '@/components/SharedTopBarOpvoeden';
 import BottomShared from '@/components/BottomShared';
 import LogosPartners from '@/components/LogosPartners';
+import ToTopButton from '@/components/ToTopButton';
 
 export default function OpvoedenScreen() {
     const insets = useSafeAreaInsets();
@@ -20,9 +21,12 @@ export default function OpvoedenScreen() {
     const { height: windowHeight } = useWindowDimensions();
 
     const [isBottomVisible, setIsBottomVisible] = useState(false);
+    const [showToTop, setShowToTop] = useState(false);
 
     const handleScroll = (event: any) => {
         const scrollY = event.nativeEvent.contentOffset.y;
+
+        setShowToTop(scrollY > windowHeight * 0.1);
 
         bottomRef.current?.measure((x, y, width, height, pageX, pageY) => {
             const screenBottom = scrollY + windowHeight;
@@ -50,6 +54,10 @@ export default function OpvoedenScreen() {
                     <BottomShared visible={isBottomVisible} />
                 </View>
             </ScrollView>
+
+            {showToTop && (
+                <ToTopButton onPress={() => scrollRef.current?.scrollTo({ y: 0, animated: true })} />
+            )}
         </SafeAreaView>
     );
 }
