@@ -15,6 +15,7 @@ import OnzeRegels from '@/components/OnzeRegels';
 import InternaatInBeeld from './InternaatInBeeld';
 import OnzeBegeleiders from './OnzeBegeleiders';
 import AdministratieveMedewerkers from './AdministratieveMedewerkers';
+import AanvragenToelating from './AanvragenToelating';
 
 const tabs = [
     'Meer over ons internaat',
@@ -96,6 +97,12 @@ export default function SharedTopBarInternaat() {
                     <>
                         <OnzeBegeleiders />
                         <AdministratieveMedewerkers />
+                    </>
+                )}
+
+                {activeTab === 'Aanvragen toelating of melden van ziekte' && (
+                    <>
+                        <AanvragenToelating />
                     </>
                 )}
 
