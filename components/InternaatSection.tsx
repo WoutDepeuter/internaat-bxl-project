@@ -1,5 +1,12 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, ImageSourcePropType } from 'react-native';
+import {
+    View,
+    Text,
+    Image,
+    StyleSheet,
+    ImageSourcePropType,
+    useWindowDimensions,
+} from 'react-native';
 
 interface InternaatSectionProps {
     image: ImageSourcePropType;
@@ -9,10 +16,29 @@ interface InternaatSectionProps {
     borderColor?: string;
 }
 
-export default function InternaatSection({ image, title, subtitle, bullets, borderColor = '#0761b7' }: InternaatSectionProps) {
+export default function InternaatSection({
+    image,
+    title,
+    subtitle,
+    bullets,
+    borderColor = '#0761b7',
+}: InternaatSectionProps) {
+    const { width } = useWindowDimensions();
+    const isDesktop = width >= 1024;
+
     return (
-        <View style={[styles.section, { borderColor: borderColor ?? '#0761b7' }]}>
-            <Image source={image} style={styles.image} resizeMode="cover" />
+        <View
+            style={[
+                styles.section,
+                { borderColor },
+                isDesktop && styles.sectionDesktop,
+            ]}
+        >
+            <Image
+                source={image}
+                style={[styles.image, isDesktop && styles.imageDesktop]}
+                resizeMode="cover"
+            />
             <View style={styles.content}>
                 <Text style={styles.title}>{title}</Text>
                 <Text style={styles.subtitle}>{subtitle}</Text>
@@ -36,11 +62,19 @@ const styles = StyleSheet.create({
         borderBottomWidth: 5,
         borderColor: '#0761b7',
         backgroundColor: '#efefef',
+        width: '100%',
+    },
+    sectionDesktop: {
+        width: '40%',
+        alignSelf: 'center',
     },
     image: {
         width: '100%',
         height: 200,
         marginBottom: 16,
+    },
+    imageDesktop: {
+        height: 529,
     },
     content: {
         paddingHorizontal: 16,
