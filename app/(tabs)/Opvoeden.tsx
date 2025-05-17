@@ -48,8 +48,6 @@ export default function OpvoedenScreen() {
 
                 <SharedTopBar />
 
-                <LogosPartners />
-
                 <View ref={bottomRef}>
                     <BottomShared visible={isBottomVisible} />
                 </View>

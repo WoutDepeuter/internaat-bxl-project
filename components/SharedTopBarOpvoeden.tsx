@@ -31,6 +31,8 @@ import HandshakePartnersIcon from '@/assets/svgs/donbosco-partners/handshake-svg
 
 import PlayButtonIcon from '@/assets/svgs/donbosco-partners/play-button-svgrepo-com.svg';
 
+import LogosPartners from '@/components/LogosPartners';
+
 const tabs = [
     "Wie was Don Bosco?",
     "Ons opvoedingsproject",
@@ -122,7 +124,7 @@ export default function SharedTopBar() {
             </View>
 
             {/* Content */}
-            <ScrollView style={styles.contentContainer}>
+            <ScrollView style={[styles.contentContainer, activeTab === 'Partners' && { padding: 0, paddingRight: 16, paddingLeft: 16, paddingTop: 16 }]}>
                 <View style={styles.titleWrapper}>
                     <Text style={styles.title}>
                         {activeTab === 'Ons opvoedingsproject'
@@ -409,6 +411,8 @@ export default function SharedTopBar() {
                                 </Text>
                             </View>
                         </View>
+
+                        <LogosPartners />
                     </View>
                 )}
 
