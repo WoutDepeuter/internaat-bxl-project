@@ -44,7 +44,6 @@ export default function InternaatScreen() {
       >
         <PageBanner title="Ons internaat" />
         <SharedTopBarInternaat />
-        <InternaatPlanning />
 
         <View style={{ height: 32 }} />
 
