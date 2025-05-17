@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import InternaatSection from '@/components/InternaatSection';
+import InternaatSection from '@/components/Pages/Internaat/InternaatSection';
 
 const sectionData = [
 

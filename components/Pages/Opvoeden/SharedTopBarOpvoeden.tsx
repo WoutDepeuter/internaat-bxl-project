@@ -25,13 +25,13 @@ import IconsSolid from '@/assets/svgs/donbosco-waarden/icons-solid.svg';
 import HandshakeIcon from '@/assets/svgs/donbosco-waarden/handshake-regular.svg';
 import HandsHoldingIcon from '@/assets/svgs/donbosco-waarden/hands-holding-svgrepo-com.svg';
 
-import OpsommingOpvoedenOnzeWaarden from '@/components/OpsommingOpvoedenOnzeWaarden';
+import OpsommingOpvoedenOnzeWaarden from '@/components/Pages/Opvoeden/OpsommingOpvoedenOnzeWaarden';
 
 import HandshakePartnersIcon from '@/assets/svgs/donbosco-partners/handshake-svgrepo-com.svg';
 
 import PlayButtonIcon from '@/assets/svgs/donbosco-partners/play-button-svgrepo-com.svg';
 
-import LogosPartners from '@/components/LogosPartners';
+import LogosPartners from '@/components/Pages/Opvoeden/LogosPartners';
 
 const tabs = [
     "Wie was Don Bosco?",

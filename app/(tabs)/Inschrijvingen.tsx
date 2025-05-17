@@ -13,7 +13,7 @@ import InfoText from '@/components/Pages/Home/InfoText';
 import InfoButtons from '@/components/Pages/Inschrijven/InschrijvenButtons';
 import BelangrijkeDocumenten from '@/components/Pages/Inschrijven/BelangrijkeDocumenten';
 import BottomShared from '@/components/Pages/Shared/BottomShared';
-import ToTopButton from '@/components/ToTopButton';
+import ToTopButton from '@/components/Pages/Shared/ToTopButton';
 
 export default function InschrijvenScreen() {
     const insets = useSafeAreaInsets();

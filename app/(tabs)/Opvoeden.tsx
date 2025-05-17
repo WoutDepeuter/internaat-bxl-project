@@ -11,8 +11,8 @@ import { useRef, useState } from 'react';
 import PageBanner from '@/components/Pages/Shared/PageBanner';
 import SharedTopBar from '@/components/Pages/Opvoeden/SharedTopBarOpvoeden';
 import BottomShared from '@/components/Pages/Shared/BottomShared';
-import LogosPartners from '@/components/LogosPartners';
-import ToTopButton from '@/components/ToTopButton';
+import LogosPartners from '@/components/Pages/Opvoeden/LogosPartners';
+import ToTopButton from '@/components/Pages/Shared/ToTopButton';
 
 export default function OpvoedenScreen() {
     const insets = useSafeAreaInsets();

@@ -10,7 +10,7 @@ import { useRef, useState } from 'react';
 
 import PageBanner from '@/components/Pages/Shared/PageBanner';
 import SharedTopBarInternaat from '@/components/Pages/Internaat/SharedTopBarInternaat';
-import ToTopButton from '@/components/ToTopButton';
+import ToTopButton from '@/components/Pages/Shared/ToTopButton';
 import BottomShared from '@/components/Pages/Shared/BottomShared';
 
 export default function InternaatScreen() {

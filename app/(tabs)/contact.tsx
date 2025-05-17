@@ -9,11 +9,11 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRef, useState } from 'react';
 
 import PageBanner from '@/components/Pages/Shared/PageBanner';
-import LiggingInternaat from '@/components/LiggingInternaat';
-import ContactInfo from '@/components/ContactInfo';
-import Bereikbaarheid from '@/components/Bereikbaarheid';
+import LiggingInternaat from '@/components/Pages/Contact/LiggingInternaat';
+import ContactInfo from '@/components/Pages/Contact/ContactInfo';
+import Bereikbaarheid from '@/components/Pages/Contact/Bereikbaarheid';
 import ContacteerOns from '@/components/Pages/Shared/ContacteerOns';
-import ToTopButton from '@/components/ToTopButton';
+import ToTopButton from '@/components/Pages/Shared/ToTopButton';
 
 export default function ContactScreen() {
     const insets = useSafeAreaInsets();
