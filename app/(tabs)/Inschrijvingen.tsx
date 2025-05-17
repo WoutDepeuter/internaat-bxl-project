@@ -10,8 +10,8 @@ import { useRef, useState } from 'react';
 
 import PageBanner from '@/components/Pages/Shared/PageBanner';
 import InfoText from '@/components/Pages/Home/InfoText';
-import InfoButtons from '@/components/ui/InschrijvenButtons';
-import BelangrijkeDocumenten from '@/components/ui/BelangrijkeDocumenten';
+import InfoButtons from '@/components/Pages/Inschrijven/InschrijvenButtons';
+import BelangrijkeDocumenten from '@/components/Pages/Inschrijven/BelangrijkeDocumenten';
 import BottomShared from '@/components/Pages/Shared/BottomShared';
 import ToTopButton from '@/components/ToTopButton';
 
