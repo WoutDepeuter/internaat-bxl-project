@@ -8,8 +8,8 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRef, useState } from 'react';
 
-import PageBanner from '@/components/PageBanner';
-import SharedTopBar from '@/components/SharedTopBarOpvoeden';
+import PageBanner from '@/components/Pages/Shared/PageBanner';
+import SharedTopBar from '@/components/Pages/Opvoeden/SharedTopBarOpvoeden';
 import BottomShared from '@/components/Pages/Shared/BottomShared';
 import LogosPartners from '@/components/LogosPartners';
 import ToTopButton from '@/components/ToTopButton';

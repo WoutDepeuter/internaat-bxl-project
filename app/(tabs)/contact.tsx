@@ -8,7 +8,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRef, useState } from 'react';
 
-import PageBanner from '@/components/PageBanner';
+import PageBanner from '@/components/Pages/Shared/PageBanner';
 import LiggingInternaat from '@/components/LiggingInternaat';
 import ContactInfo from '@/components/ContactInfo';
 import Bereikbaarheid from '@/components/Bereikbaarheid';
