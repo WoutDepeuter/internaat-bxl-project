@@ -9,14 +9,14 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRef, useState } from 'react';
 
-import ImageSlider from '@/components/ImageSlider';
-import InfoText from '@/components/InfoText';
-import IconButtonsRow from '@/components/IconButtonsRow';
-import SplitSlider from '@/components/SplitSlider';
+import ImageSlider from '@/components/Pages/Home/ImageSlider';
+import InfoText from '@/components/Pages/Home/InfoText';
+import IconButtonsRow from '@/components/Pages/Home/IconButtonsRow';
+import SplitSlider from '@/components/Pages/Home/SplitSlider';
 import BottomShared from '@/components/BottomShared';
 import ContacteerOns from '@/components/ContacteerOns';
 import ToTopButton from '@/components/ToTopButton';
-import TestimonialCarousel from '@/components/TestimonialCarousel';
+import TestimonialCarousel from '@/components/Pages/Home/TestimonialCarousel';
 
 export default function HomeScreen() {
     const splitSliderRef = useRef<View>(null);

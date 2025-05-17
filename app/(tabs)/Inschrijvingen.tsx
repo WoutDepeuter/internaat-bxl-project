@@ -9,7 +9,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRef, useState } from 'react';
 
 import PageBanner from '@/components/PageBanner';
-import InfoText from '@/components/InfoText';
+import InfoText from '@/components/Pages/Home/InfoText';
 import InfoButtons from '@/components/ui/InschrijvenButtons';
 import BelangrijkeDocumenten from '@/components/ui/BelangrijkeDocumenten';
 import BottomShared from '@/components/BottomShared';
