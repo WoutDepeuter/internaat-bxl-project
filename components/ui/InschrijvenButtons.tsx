@@ -284,7 +284,7 @@ const styles = StyleSheet.create({
     // Panels
     panel: {
         flex: 1,
-        backgroundColor: '#FFF',
+        backgroundColor: '#f0f0f0',
         borderTopWidth: 1,
         borderColor: '#DDD',
     },
