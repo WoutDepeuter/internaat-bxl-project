@@ -9,14 +9,14 @@ import {
     Linking,
 } from 'react-native';
 
-import InternaatPlanning from '@/components/InternaatPlanning';
-import InternaatEigenschappen from '@/components/InternaatEigenschappen';
-import OnzeRegels from '@/components/OnzeRegels';
-import InternaatInBeeld from './InternaatInBeeld';
-import OnzeBegeleiders from './OnzeBegeleiders';
-import AdministratieveMedewerkers from './AdministratieveMedewerkers';
-import AanvragenToelating from './AanvragenToelating';
-import MeldenPestgedrag from './MeldenPestgedrag';
+import InternaatPlanning from '@/components/Pages/Internaat/InternaatPlanning';
+import InternaatEigenschappen from '@/components/Pages/Internaat/InternaatEigenschappen';
+import OnzeRegels from '@/components/Pages/Internaat/OnzeRegels';
+import InternaatInBeeld from '@/components/Pages/Internaat/InternaatInBeeld';
+import OnzeBegeleiders from '@/components/Pages/Internaat/OnzeBegeleiders';
+import AdministratieveMedewerkers from '@/components/Pages/Internaat/AdministratieveMedewerkers';
+import AanvragenToelating from '@/components/Pages/Internaat/AanvragenToelating';
+import MeldenPestgedrag from '@/components/Pages/Internaat/MeldenPestgedrag';
 
 const tabs = [
     'Meer over ons internaat',

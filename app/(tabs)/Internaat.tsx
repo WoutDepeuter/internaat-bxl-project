@@ -9,8 +9,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRef, useState } from 'react';
 
 import PageBanner from '@/components/Pages/Shared/PageBanner';
-import SharedTopBarInternaat from '@/components/SharedTopBarInternaat';
-import InternaatPlanning from '@/components/InternaatPlanning';
+import SharedTopBarInternaat from '@/components/Pages/Internaat/SharedTopBarInternaat';
 import ToTopButton from '@/components/ToTopButton';
 import BottomShared from '@/components/Pages/Shared/BottomShared';
 
