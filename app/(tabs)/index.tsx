@@ -13,8 +13,8 @@ import ImageSlider from '@/components/Pages/Home/ImageSlider';
 import InfoText from '@/components/Pages/Home/InfoText';
 import IconButtonsRow from '@/components/Pages/Home/IconButtonsRow';
 import SplitSlider from '@/components/Pages/Home/SplitSlider';
-import BottomShared from '@/components/BottomShared';
-import ContacteerOns from '@/components/ContacteerOns';
+import BottomShared from '@/components/Pages/Shared/BottomShared';
+import ContacteerOns from '@/components/Pages/Shared/ContacteerOns';
 import ToTopButton from '@/components/ToTopButton';
 import TestimonialCarousel from '@/components/Pages/Home/TestimonialCarousel';
 

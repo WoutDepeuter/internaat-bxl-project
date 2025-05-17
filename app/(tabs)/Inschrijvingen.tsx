@@ -12,7 +12,7 @@ import PageBanner from '@/components/PageBanner';
 import InfoText from '@/components/Pages/Home/InfoText';
 import InfoButtons from '@/components/ui/InschrijvenButtons';
 import BelangrijkeDocumenten from '@/components/ui/BelangrijkeDocumenten';
-import BottomShared from '@/components/BottomShared';
+import BottomShared from '@/components/Pages/Shared/BottomShared';
 import ToTopButton from '@/components/ToTopButton';
 
 export default function InschrijvenScreen() {

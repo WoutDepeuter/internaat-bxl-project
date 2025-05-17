@@ -10,7 +10,7 @@ import { useRef, useState } from 'react';
 
 import PageBanner from '@/components/PageBanner';
 import SharedTopBar from '@/components/SharedTopBarOpvoeden';
-import BottomShared from '@/components/BottomShared';
+import BottomShared from '@/components/Pages/Shared/BottomShared';
 import LogosPartners from '@/components/LogosPartners';
 import ToTopButton from '@/components/ToTopButton';
 

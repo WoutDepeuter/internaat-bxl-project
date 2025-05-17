@@ -12,7 +12,7 @@ import PageBanner from '@/components/PageBanner';
 import LiggingInternaat from '@/components/LiggingInternaat';
 import ContactInfo from '@/components/ContactInfo';
 import Bereikbaarheid from '@/components/Bereikbaarheid';
-import ContacteerOns from '@/components/ContacteerOns';
+import ContacteerOns from '@/components/Pages/Shared/ContacteerOns';
 import ToTopButton from '@/components/ToTopButton';
 
 export default function ContactScreen() {

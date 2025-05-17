@@ -12,7 +12,7 @@ import PageBanner from '@/components/PageBanner';
 import SharedTopBarInternaat from '@/components/SharedTopBarInternaat';
 import InternaatPlanning from '@/components/InternaatPlanning';
 import ToTopButton from '@/components/ToTopButton';
-import BottomShared from '@/components/BottomShared';
+import BottomShared from '@/components/Pages/Shared/BottomShared';
 
 export default function InternaatScreen() {
   const insets = useSafeAreaInsets();
