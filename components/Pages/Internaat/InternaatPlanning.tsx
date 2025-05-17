@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import InternaatPlanningDetails from './InternaatPlanningDetails';
+import InternaatPlanningDetails from '@/components/Pages/Internaat/InternaatPlanningDetails';
 
 const planningItems = [
     'Lager onderwijs',
