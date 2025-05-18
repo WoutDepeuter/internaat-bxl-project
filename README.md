@@ -35,3 +35,6 @@ C. Docker (quite heavy, for fast local dev the above are faster.)
 ## Contributers
 - [Wout De Peuter](mailto:wout.de.peuter@student.ehb.be)
 - [Tristan Vong](mailto:tristan.vong@student.ehb.be)
+
+## Kanban Trello Board
+[Trello Link](https://trello.com/b/t6uHu8T9/trello-internaat-bxl-project-2025)
