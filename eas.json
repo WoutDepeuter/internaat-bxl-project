@@ -20,6 +20,11 @@
         "buildConfiguration": "Release",
         "simulator": false
       }
+    },
+    "apk": {
+      "android": {
+        "buildType": "apk"
+      }
     }
   },
   "submit": {
