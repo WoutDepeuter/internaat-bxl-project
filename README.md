@@ -27,6 +27,17 @@ C. Docker (quite heavy, for fast local dev the above are faster.)
 
 1. `docker compose up`
 
+## Instructions to build the project:
+> [!NOTE]  
+> The eas tool has to be installed to be able to build the project into runnable .apk or a publishable .aab.
+> Apple/iOS is currently not working and cannot be build.
+
+A. Build the .aab file (file to be send to Google to publish application)
+1. `eas build -p android --profile production`
+
+B. Build the .apk file (file to be used to test on your own phone, locally)
+1. `eas build -p android --profile apk`
+
 ## Tech stack - credits
 - [Expo](https://github.com/expo/expo/)
 - [FontAwesome](https://fontawesome.com/)
